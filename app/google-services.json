@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "289426928461",
+    "firebase_url": "https://eating-go-dabf0-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "eating-go-dabf0",
+    "storage_bucket": "eating-go-dabf0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289426928461:android:9d916c3f49aca2e0a2bd04",
+        "android_client_info": {
+          "package_name": "com.example.eatinggo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg6QdmQM8zWIdmXk7ova_5Xj8B3KO4xcY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
