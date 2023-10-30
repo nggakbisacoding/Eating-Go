@@ -11,7 +11,9 @@ jobs:
     name: testing
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
       - uses: actions/checkout@v3
+      - nane: Setup java
       - uses: actions/setup-java@v3
       with:
         distribution: 'temurin'
