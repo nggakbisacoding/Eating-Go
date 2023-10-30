@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.example.eatinggo"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.eatinggo"
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -33,6 +33,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
