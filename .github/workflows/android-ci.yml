@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-
+    name: testing
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,7 @@ jobs:
       java-version: '17'
       cache: 'gradle'
       
-    - name: Grant execute permission for gradlew
+    - name: Grant execute permission for gradle
     run: chmod +x gradlew
     - name: Build with Gradle
     run: ./gradlew build
