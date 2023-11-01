@@ -1,0 +1,17 @@
+    <toolchains>
+      <toolchain>
+        <type>jdk</type>
+        <provides>
+          <version>1.7</version>
+        </provides>
+        <configuration>
+          <jdkHome>JAVA_HOME_17_X64</jdkHome>
+        </configuration>
+      </toolchain>
+      <toolchain>
+        <type>jdk</type>
+        <provides>
+          <version>1.9</version>
+        </provides>
+      </toolchain>
+    </toolchains>
