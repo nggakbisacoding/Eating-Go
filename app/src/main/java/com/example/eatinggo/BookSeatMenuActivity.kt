@@ -3,9 +3,9 @@ package com.example.eatinggo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity() {
+class BookSeatMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.register_page)
+        setContentView(R.layout.book_seat_menu)
     }
 }

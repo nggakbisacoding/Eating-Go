@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkBrown"
+    tools:context=".BookSeatMenuActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="serif"
+        android:text="Search"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/lightBrown"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10dp">
+
+        <EditText
+            android:id="@+id/input_cafe"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:hint="Search cafe"
+            android:lines="1"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/input_location"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:hint="Location"
+            android:lines="1"
+            android:maxLines="1"
+            android:paddingStart="20dp" />
+
+        <EditText
+            android:id="@+id/input_date"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:hint="date"
+            android:lines="1"
+            android:maxLines="1"
+            android:paddingStart="20dp" />
+
+        <EditText
+            android:id="@+id/input_time"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="170dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:hint="time"
+            android:lines="1"
+            android:maxLines="1"
+            android:paddingStart="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="230dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/sort_btn"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@drawable/button_shape"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Sort"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="50dp"
+                android:background="@drawable/button_shape"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Search"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
