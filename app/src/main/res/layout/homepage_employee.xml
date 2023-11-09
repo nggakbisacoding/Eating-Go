@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/beige"
+    tools:context=".HomepageEmployeeActivity">
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="30dp"
+        android:fontFamily="@font/festina_lente"
+        android:textColor="@color/darkBrown"
+        android:textSize="30sp"
+        android:text="Welcome!"/>
+    <TextView
+        android:id="@+id/greetUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="30dp"
+        android:fontFamily="@font/festina_lente"
+        android:textColor="@color/darkBrown"
+        android:textSize="30sp"
+        android:text="Employee"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/information"
+            android:layout_width="95dp"
+            android:layout_height="80dp"
+            android:background="@drawable/button_shape"
+            android:text="Information"
+            android:drawableStart="@drawable/ic_calendar"
+            />
+        <Button
+            android:id="@+id/seat"
+            android:layout_width="95dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="125dp"
+            android:background="@drawable/button_shape"
+            android:text="Seat"/>
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="380dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/lightBrown"
+        app:cardCornerRadius="15dp">
+
+        <TextView
+            android:id="@+id/reservation"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Reservation"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <View
+            android:layout_width="300dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="45dp"
+            android:background="@color/white"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/user1"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="User 1"
+            android:textColor="@color/white"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/book_status1"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="200dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="User 1 has booked.."
+            android:textColor="@color/white"
+            android:textSize="15sp"/>
+
+        <View
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="73dp"
+            android:background="@color/white"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/user2"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="User 2"
+            android:textColor="@color/white"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/book_status2"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="75dp"
+            android:layout_marginStart="200dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="User 2 has booked.."
+            android:textColor="@color/white"
+            android:textSize="15sp"/>
+
+        <View
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="98dp"
+            android:background="@color/white"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/user3"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="User 3"
+            android:textColor="@color/white"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/book_status3"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="200dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="User 3 has booked.."
+            android:textColor="@color/white"
+            android:textSize="15sp"/>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
