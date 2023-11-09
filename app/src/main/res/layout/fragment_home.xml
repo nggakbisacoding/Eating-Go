@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.HomeFragment">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/beige"
+        android:orientation="vertical"
+        tools:context=".HomepageActivity">
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/festina_lente"
+            android:textColor="@color/darkBrown"
+            android:textSize="30sp"
+            android:text="Welcome!"/>
+        <TextView
+            android:id="@+id/greetUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/festina_lente"
+            android:textColor="@color/darkBrown"
+            android:textSize="30sp"
+            android:text="Username"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/searchCafe"
+                android:layout_width="95dp"
+                android:layout_height="80dp"
+                android:background="@drawable/button_shape"
+                android:text="cari cafe"
+                />
+            <Button
+                android:id="@+id/nearbyCafe"
+                android:layout_width="95dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="125dp"
+                android:background="@drawable/button_shape"
+                android:text="nearby"/>
+            <Button
+                android:id="@+id/history"
+                android:layout_width="95dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="250dp"
+                android:background="@drawable/button_shape"
+                android:text="history"/>
+        </RelativeLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="350dp"
+            android:layout_height="190dp"
+            android:layout_marginTop="380dp"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/lightBrown"
+            app:cardCornerRadius="15dp">
+
+            <TextView
+                android:id="@+id/activeBook"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/festina_lente"
+                android:text="Active Book"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+            <TextView
+                android:id="@+id/namaCafe"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Coffe Kulo"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/lokasiCafe"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="80dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Sleman, Yogyakarta"
+                android:textColor="@color/white"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/tanggalBooking"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="110dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="25 September 2023"
+                android:textColor="@color/white"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/waktuBooking"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="140dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="16.00-18.00 WIB"
+                android:textColor="@color/white"
+                android:textSize="15sp"/>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+
+</FrameLayout>
