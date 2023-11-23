@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">EatingGo</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="About_apps">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et hendrerit risus.
+        Curabitur ac tempor tortor. Mauris dignissim malesuada volutpat. Fusce a fringilla lacus.
+        Curabitur molestie vel metus quis imperdiet. Aenean ante turpis, laoreet nec nunc sit amet,
+        venenatis tempor nibh.Nam ut nisl sed ipsum aliquet dapibus at nec felis.
+        Cras nec nisl nisi. Proin consectetur ex sit amet orci cursus interdum.
+        Cras dapibus velit purus, vitae vestibulum purus dignissim tristique.
+        Mauris ac tellus sit amet neque venenatis blandit. Fusce dapibus mauris vitae finibus gravida.
+    </string>
+    <string name="FAQ">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Vivamus et hendrerit risus. Curabitur ac tempor tortor.
+        Mauris dignissim malesuada volutpat.
+    </string>
 </resources>

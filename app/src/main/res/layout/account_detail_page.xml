@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/beige"
+    tools:context=".AccountDetailPageActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="40dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingStart="20dp"
+            android:src="@drawable/ic_back_arrow" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:fontFamily="@font/festina_lente"
+            android:gravity="center_horizontal"
+            android:text="Account Detail"
+            android:textColor="@color/mediumBrown"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/profle_image" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:layout_marginTop="350dp"
+        android:backgroundTint="@color/mediumBrown"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/text_background_beige"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="ghanysp"
+            android:textColor="@color/darkBrown"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:paddingStart="20dp"
+            android:drawableEnd="@drawable/baseline_edit_24"
+            android:paddingEnd="20dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/full_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/text_background_beige"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textAllCaps="false"
+            android:text="Full name"
+            android:textColor="@color/darkBrown"
+            android:textAlignment="textStart"
+            android:paddingStart="20dp"
+            android:drawableEnd="@drawable/baseline_edit_24"
+            android:paddingEnd="20dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="140dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/text_background_beige"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textAllCaps="false"
+            android:text="syauqi@gmail.com"
+            android:textColor="@color/darkBrown"
+            android:textAlignment="textStart"
+            android:paddingStart="20dp"
+            android:drawableEnd="@drawable/baseline_edit_24"
+            android:paddingEnd="20dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/text_background_beige"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textAllCaps="false"
+            android:text="08123456789"
+            android:textColor="@color/darkBrown"
+            android:textAlignment="textStart"
+            android:paddingStart="20dp"
+            android:drawableEnd="@drawable/baseline_edit_24"
+            android:paddingEnd="20dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="260dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/text_background_beige"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textAllCaps="false"
+            android:text="Password"
+            android:textColor="@color/darkBrown"
+            android:textAlignment="textStart"
+            android:paddingStart="20dp"
+            android:drawableEnd="@drawable/baseline_edit_24"
+            android:paddingEnd="20dp"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/delete_account_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/logout_background_btn"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textAllCaps="false"
+            android:text="Delete Account"
+            android:textColor="@color/white"
+            android:textAlignment="center"/>
+
+
+
+
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>
