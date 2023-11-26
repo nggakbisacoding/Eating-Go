@@ -14,7 +14,7 @@ import com.example.eatinggo.model.HistoryDao
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
 @TypeConverters(DateConverter::class)
-@Database(entities = [Chair::class, History::class, Cafe::class], version = 1, exportSchema = true)
+@Database(entities = [Chair::class, History::class, Cafe::class], version = 1, exportSchema = false)
 abstract class ControllerDatabase : RoomDatabase() {
 
     abstract fun CafeDao(): CafeDao?

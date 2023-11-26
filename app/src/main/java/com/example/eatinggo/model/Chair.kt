@@ -10,8 +10,8 @@ import androidx.room.PrimaryKey
     ["id"], ["cafe_id"], CASCADE)]
 )
 data class Chair(
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "is_used") val chairUsed: Boolean? = false,
-    @ColumnInfo(name = "cafe_id", index = true) val cafeId: Int,
+    @ColumnInfo(name = "cafe_id") val cafeId: Int,
     @ColumnInfo(name = "user_id") val userId: Int? = null
 )
