@@ -3,11 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.HomeFragment">
+    tools:context=".fragments.HomeFragment">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/beige"
@@ -22,7 +20,7 @@
             android:fontFamily="@font/festina_lente"
             android:textColor="@color/darkBrown"
             android:textSize="30sp"
-            android:text="Welcome!"/>
+            android:text="@string/welcome"/>
         <TextView
             android:id="@+id/greetUsername"
             android:layout_width="wrap_content"
@@ -32,7 +30,7 @@
             android:fontFamily="@font/festina_lente"
             android:textColor="@color/darkBrown"
             android:textSize="30sp"
-            android:text="Username"/>
+            android:text="@string/username"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -77,7 +75,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/festina_lente"
-                android:text="Active Book"
+                android:text="@string/active_book"
                 android:textColor="@color/white"
                 android:textSize="30sp" />
             <TextView
@@ -87,7 +85,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="50dp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="Coffe Kulo"
+                android:text="@string/cafe_name"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
@@ -98,8 +96,9 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="80dp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="Sleman, Yogyakarta"
+                android:text="@string/alamat"
                 android:textColor="@color/white"
+                android:visibility="gone"
                 android:textSize="15sp"/>
             <TextView
                 android:id="@+id/tanggalBooking"
@@ -108,8 +107,9 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="110dp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="25 September 2023"
+                android:text="@string/tanggal"
                 android:textColor="@color/white"
+                android:visibility="gone"
                 android:textSize="15sp"/>
             <TextView
                 android:id="@+id/waktuBooking"
@@ -118,7 +118,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="140dp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="16.00-18.00 WIB"
+                android:text="@string/jam_default"
+                android:visibility="gone"
                 android:textColor="@color/white"
                 android:textSize="15sp"/>
         </androidx.cardview.widget.CardView>

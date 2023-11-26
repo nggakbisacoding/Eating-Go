@@ -19,14 +19,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:paddingStart="20dp"
-            android:src="@drawable/ic_back_arrow" />
+            android:src="@drawable/ic_back_arrow"
+            android:contentDescription="@string/none" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/festina_lente"
             android:paddingStart="110dp"
-            android:text="About"
+            android:text="@string/about"
             android:textColor="@color/mediumBrown"
             android:textSize="25sp" />
     </LinearLayout>
@@ -43,7 +44,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:text="Tentang Aplikasi EatingGo"
+            android:text="@string/tentang_aplikasi_eatinggo"
             android:textColor="@color/white"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="20sp"/>

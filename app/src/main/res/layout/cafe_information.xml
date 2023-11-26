@@ -19,14 +19,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:paddingStart="20dp"
-            android:src="@drawable/ic_back_arrow" />
+            android:paddingEnd="0dp"
+            android:src="@drawable/ic_back_arrow"
+            android:contentDescription="@string/none" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/festina_lente"
             android:paddingStart="110dp"
-            android:text="Near Me"
+            android:paddingEnd="20dp"
+            android:text="@string/near_me"
             android:textColor="@color/mediumBrown"
             android:textSize="25sp" />
     </LinearLayout>
@@ -63,7 +66,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="10dp"
-                        android:src="@drawable/kopi_kulo" />
+                        android:src="@drawable/kopi_kulo"
+                        android:contentDescription="@string/none" />
 
                     <TextView
                         android:id="@+id/cafe_name"
