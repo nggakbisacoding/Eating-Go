@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/festina_lente"
-            android:paddingStart="110dp"
+            android:paddingStart="100dp"
             android:paddingEnd="20dp"
             android:text="@string/near_me"
             android:textColor="@color/mediumBrown"
