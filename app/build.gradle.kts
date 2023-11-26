@@ -31,11 +31,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "1.8"
     }
     buildFeatures{
         viewBinding = true
@@ -43,6 +43,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.databinding:databinding-runtime:8.1.4")
     val roomVersion = "2.6.0"
 
     // Room Database
@@ -77,6 +78,11 @@ dependencies {
 
     // dependencies for circular image
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+
+    // Databinding
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
 
     // Firebase
     implementation("com.google.firebase:firebase-auth:22.3.0")
