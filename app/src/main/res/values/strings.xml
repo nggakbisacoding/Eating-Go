@@ -51,4 +51,15 @@
     <string name="phone_number">0812345678</string>
     <string name="example_email">email@gmail.com</string>
     <string name="near_me">Near Me</string>
+    <string name="confirmation_password">Confirmation Password</string>
+    <string name="logout_account">Logout Account</string>
+    <string name="update_account">Update Account</string>
+    <string name="new_password">New Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="otp">otp</string>
+    <string name="can_t_change_for_now">Can\'t change for now</string>
+    <string name="disable">Phone (Disable for Now)</string>
+    <string name="are_you_sure">Are You Sure?</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_now">Delete Now!</string>
 </resources>

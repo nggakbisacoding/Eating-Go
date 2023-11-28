@@ -18,6 +18,10 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -64,9 +68,11 @@ dependencies {
     // Firebase BOM
     implementation(platform("com.google.firebase:firebase-bom:32.4.0"))
 
-    // Location
+    // play service
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation("com.google.android.gms:play-services-auth-api-phone:18.0.1")
 
     //Ksp
     implementation("com.google.devtools.ksp:symbol-processing-api:1.9.10-1.0.13")
@@ -91,4 +97,15 @@ dependencies {
     implementation("com.google.firebase:firebase-database:20.3.0")
     implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.google.firebase:firebase-perf-ktx:20.5.1")
+
+    //Glide ImageURI
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    ksp("com.github.bumptech.glide:compiler:4.14.2")
+
+    //Gson
+    implementation("com.google.code.gson:gson:2.10.1")
+
+    //Json
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
+
 }

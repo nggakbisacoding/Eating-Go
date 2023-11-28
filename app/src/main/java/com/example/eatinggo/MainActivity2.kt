@@ -3,6 +3,7 @@ package com.example.eatinggo
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 // import com.example.eatinggo.fragments.ActiveBookFragment
@@ -32,6 +33,12 @@ class MainActivity2 : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
+        val actionBar = supportActionBar
+
+        if (actionBar != null) {
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_back_arrow)
+            actionBar.setDisplayHomeAsUpEnabled(true)
+        }
         // atur tampilan awal dari fragement
         binding.bottomNavigationView.setOnItemSelectedListener{
             when(it.itemId){
@@ -59,5 +66,27 @@ class MainActivity2 : AppCompatActivity() {
         } else {
             switchFragment(HomeFragment())
         }
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.home -> {
+                finish()
+                return true
+            }
+            R.id.active_book -> {
+                finish()
+                return true
+            }
+            R.id.profile -> {
+                finish()
+                return true
+            }
+            R.id.back_btn -> {
+                finish()
+                return true
+            }
+        }
+        return super.onContextItemSelected(item)
     }
 }

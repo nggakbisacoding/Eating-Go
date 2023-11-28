@@ -10,8 +10,8 @@ import java.sql.Date
     ["id"], ["cafe_id"], ForeignKey.CASCADE)]
 )
 data class History(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "history_date") val historyDate: Date,
-    @ColumnInfo(name = "cafe_id") val cafeId: Int,
+    @ColumnInfo(name = "cafe_id", index = true) val cafeId: Int,
     @ColumnInfo(name = "user_id") val userId: Int
 )

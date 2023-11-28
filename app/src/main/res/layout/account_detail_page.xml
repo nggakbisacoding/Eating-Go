@@ -35,110 +35,162 @@
             android:textSize="25sp" />
     </LinearLayout>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/profle_image" />
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:layout_marginTop="350dp"
+        android:layout_height="1200dp"
+        android:layout_marginTop="80dp"
         android:backgroundTint="@color/mediumBrown"
         app:cardCornerRadius="15dp"
         app:cardElevation="5dp">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="wrap_content"
+            android:paddingTop="15dp"
+            android:layout_height="180dp"
+            android:src="@drawable/profle_image" />
+
+        <EditText
             android:id="@+id/first_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="210dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/text_background_beige"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="@string/first_name"
             android:hint="@string/first_name"
+            android:inputType="text"
             android:textColor="@color/darkBrown"
             android:textAlignment="textStart"
             android:textAllCaps="false"
             android:paddingStart="20dp"
             android:drawableEnd="@drawable/baseline_edit_24"
-            android:paddingEnd="20dp"/>
-        <androidx.appcompat.widget.AppCompatButton
+            android:paddingEnd="20dp"
+            android:importantForAutofill="no" />
+
+        <EditText
             android:id="@+id/last_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="270dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/text_background_beige"
             android:fontFamily="@font/montserrat_semibold"
             android:textAllCaps="false"
-            android:text="@string/last_name"
             android:hint="@string/last_name"
             android:textColor="@color/darkBrown"
             android:textAlignment="textStart"
             android:paddingStart="20dp"
             android:drawableEnd="@drawable/baseline_edit_24"
-            android:paddingEnd="20dp"/>
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="140dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/text_background_beige"
-            android:fontFamily="@font/montserrat_semibold"
-            android:textAllCaps="false"
-            android:hint="@string/example_email"
-            android:textColor="@color/darkBrown"
-            android:textAlignment="textStart"
-            android:paddingStart="20dp"
-            android:drawableEnd="@drawable/baseline_edit_24"
-            android:paddingEnd="20dp"/>
-        <androidx.appcompat.widget.AppCompatButton
+            android:paddingEnd="20dp"
+            android:importantForAutofill="no"
+            android:inputType="text" />
+        <EditText
             android:id="@+id/phone_number"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="330dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/text_background_beige"
             android:fontFamily="@font/montserrat_semibold"
             android:textAllCaps="false"
-            android:hint="@string/phone_number"
+            android:clickable="false"
+            android:hint="@string/disable"
+            android:textColor="@color/darkBrown"
+            android:textAlignment="textStart"
+            android:paddingStart="20dp"
+            android:focusable="false"
+            android:drawableEnd="@drawable/baseline_edit_24"
+            android:paddingEnd="20dp"
+            android:importantForAutofill="no"
+            android:inputType="phone|number" />
+
+        <EditText
+            android:id="@+id/current_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="390dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/text_background_beige"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textAllCaps="false"
+            android:hint="@string/current_password"
             android:textColor="@color/darkBrown"
             android:textAlignment="textStart"
             android:paddingStart="20dp"
             android:drawableEnd="@drawable/baseline_edit_24"
-            android:paddingEnd="20dp"/>
-        <androidx.appcompat.widget.AppCompatButton
+            android:paddingEnd="20dp"
+            android:importantForAutofill="no"
+            android:inputType="textPassword" />
+
+        <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="260dp"
+            android:layout_marginTop="450dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/text_background_beige"
             android:fontFamily="@font/montserrat_semibold"
             android:textAllCaps="false"
-            android:text="@string/password"
+            android:hint="@string/new_password"
             android:textColor="@color/darkBrown"
             android:textAlignment="textStart"
             android:paddingStart="20dp"
             android:drawableEnd="@drawable/baseline_edit_24"
-            android:paddingEnd="20dp"/>
+            android:paddingEnd="20dp"
+            android:importantForAutofill="no"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/conf_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="510dp"
+            android:layout_marginEnd="30dp"
+            android:inputType="textPassword"
+            android:background="@drawable/text_background_beige"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textAllCaps="false"
+            android:hint="@string/confirmation_password"
+            android:textColor="@color/darkBrown"
+            android:textAlignment="textStart"
+            android:paddingStart="20dp"
+            android:drawableEnd="@drawable/baseline_edit_24"
+            android:paddingEnd="20dp"
+            android:importantForAutofill="no" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/update_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="590dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/button_shape"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textAllCaps="false"
+            android:text="@string/update_account"
+            android:textColor="@color/white"
+            android:textAlignment="center"/>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/delete_account_btn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="400dp"
+            android:layout_marginTop="650dp"
             android:layout_marginEnd="30dp"
             android:background="@drawable/logout_background_btn"
             android:fontFamily="@font/montserrat_semibold"
@@ -147,15 +199,40 @@
             android:textColor="@color/white"
             android:textAlignment="center"/>
 
-
-
-
-
-
-
-
     </androidx.cardview.widget.CardView>
 
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/confirm_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="300dp"
+        android:paddingBottom="300dp"
+        android:paddingStart="120dp"
+        android:paddingEnd="120dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="0dp"
+        android:focusable="false"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/sure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_now"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/cancel" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>

@@ -8,31 +8,40 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.eatinggo.databinding.RegisterPageBinding
+import com.example.eatinggo.model.User
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
 import com.google.firebase.auth.userProfileChangeRequest
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.database
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.storage
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: RegisterPageBinding
-    private lateinit var etEmailorPhone: EditText
+    private lateinit var etEmail: EditText
     private lateinit var etPass: EditText
+    private lateinit var database: DatabaseReference
     private lateinit var btnSignUp: Button
     private lateinit var tvRedirectRegis: TextView
     private lateinit var tvRegis: TextView
-    lateinit var etFirstName: EditText
-    lateinit var etLastName: EditText
+    private lateinit var etFirstName: EditText
+    private lateinit var storageRef: StorageReference
+    private lateinit var etLastName: EditText
     private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = RegisterPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
+        database = Firebase.database.reference
+        storageRef = Firebase.storage.reference
 
         etFirstName = findViewById(R.id.reg_firstname)
         etLastName = findViewById(R.id.reg_lastname)
-        etEmailorPhone = findViewById(R.id.reg_email)
+        etEmail = findViewById(R.id.reg_email)
         etPass = findViewById(R.id.reg_password)
         btnSignUp = findViewById(R.id.register_btn)
         tvRedirectRegis = findViewById(R.id.employee_regis)
@@ -125,7 +134,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun signUpUser(firstName: String, lastName: String) {
-        val email = etEmailorPhone.text.toString()
+        val email = etEmail.text.toString()
         val pass = etPass.text.toString()
 
         // check pass
@@ -142,13 +151,18 @@ class RegisterActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
                 Toast.makeText(this, "Successfully Singed Up", Toast.LENGTH_SHORT).show()
-                val profileUpdates = userProfileChangeRequest{
-                    displayName = "$firstName $lastName"
-                }
                 val user = auth.currentUser
-                user!!.updateProfile(profileUpdates).addOnCompleteListener {
-                    if(it.isSuccessful) {
-                        updateUI(user)
+                storageRef.child("file/PuraUlunDanuBratan.jpg").downloadUrl.addOnSuccessListener {
+                    val userdata = User(firstName, lastName, email, pass, it.toString())
+                    database.child("users").child(user?.uid.toString()).setValue(userdata)
+                    val profileUpdates = userProfileChangeRequest{
+                        displayName = "$firstName $lastName"
+                        photoUri = it
+                    }
+                    user!!.updateProfile(profileUpdates).addOnCompleteListener { voidTask ->
+                        if(voidTask.isSuccessful) {
+                            updateUI(user)
+                        }
                     }
                 }
             } else {

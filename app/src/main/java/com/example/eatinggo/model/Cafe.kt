@@ -7,7 +7,7 @@ import java.sql.Time
 
 @Entity(tableName = "cafe")
 data class Cafe(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name="id", index = true) val id: Int,
     @ColumnInfo(name = "name") val name: String?,
     @ColumnInfo(name = "owner") val ownerName: String?,
     @ColumnInfo(name = "location") val cafeLocation: String?,

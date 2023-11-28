@@ -2,10 +2,16 @@ package com.example.eatinggo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.eatinggo.databinding.FaqPageBinding
 
 class FaqPageActivity : AppCompatActivity() {
+    private lateinit var binding: FaqPageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.faq_page)
+        binding = FaqPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.backBtn.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 }
