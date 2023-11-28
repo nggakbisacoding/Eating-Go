@@ -1,8 +1,6 @@
 package com.example.eatinggo
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -33,15 +31,6 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var storageRef: StorageReference
     private lateinit var etLastName: EditText
     private lateinit var auth: FirebaseAuth
-
-    companion object {
-        const val SHARED_PREFS = "shared_prefs"
-        const val EMAIL_KEY = "email_key"
-        const val PASSWORD_KEY = "password_key"
-    }
-    private lateinit var sharedpreferences: SharedPreferences
-    private var email: String? = null
-    private var password: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = RegisterPageBinding.inflate(layoutInflater)
@@ -57,9 +46,6 @@ class RegisterActivity : AppCompatActivity() {
         btnSignUp = findViewById(R.id.register_btn)
         tvRedirectRegis = findViewById(R.id.employee_regis)
         tvRegis = findViewById(R.id.tvregis_employee)
-        sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
-        email = sharedpreferences.getString(EMAIL_KEY, null)
-        password = sharedpreferences.getString(PASSWORD_KEY, null)
         var regisType = "user"
 
         /*
@@ -147,16 +133,6 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        if(email != auth.currentUser?.email) {
-            val editor = sharedpreferences.edit()
-            editor.clear()
-            editor.apply()
-        }
-        updateUI(auth.currentUser)
-    }
-
     private fun signUpUser(firstName: String, lastName: String) {
         val email = etEmail.text.toString()
         val pass = etPass.text.toString()
@@ -185,14 +161,6 @@ class RegisterActivity : AppCompatActivity() {
                     }
                     user!!.updateProfile(profileUpdates).addOnCompleteListener { voidTask ->
                         if(voidTask.isSuccessful) {
-                            val editor = sharedpreferences.edit()
-
-                            // below two lines will put values for
-                            // email and password in shared preferences.
-                            editor.putString(LoginPageActivity.EMAIL_KEY, email)
-                            editor.putString(LoginPageActivity.PASSWORD_KEY, pass)
-                            // to save our data with key and value.
-                            editor.apply()
                             updateUI(user)
                         }
                     }

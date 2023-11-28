@@ -2,13 +2,9 @@ package com.example.eatinggo
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.text.Editable
 import android.util.Log
 import android.view.View
@@ -27,7 +23,6 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.database
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.storage
-import java.util.concurrent.Executors
 
 class AccountDetailPageActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -67,27 +62,6 @@ class AccountDetailPageActivity : AppCompatActivity() {
         val name: List<String> = auth.currentUser?.displayName.toString().split(" ")
         fname.text = name[0].toEditable()
         lname.text = name[1].toEditable()
-
-        val executor = Executors.newSingleThreadExecutor()
-        val handler = Handler(Looper.getMainLooper())
-        var image: Bitmap?
-        var url: String
-        firedb.child("users").child(auth.currentUser!!.uid).child("photoUri").get().addOnSuccessListener {
-            url = it.value.toString()
-            println(it.key + " " + it.value)
-            executor.execute {
-                try {
-                    val `in` = java.net.URL(url).openStream()
-                    image = BitmapFactory.decodeStream(`in`)
-                    handler.post {
-                        binding.profileImage.setImageBitmap(image)
-                    }
-                }
-                catch (e: Exception) {
-                    e.printStackTrace()
-                }
-            }
-        }
 
         binding.profileImage.setOnClickListener {
             galleryLauncher.launch("image/*")

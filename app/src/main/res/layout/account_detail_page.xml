@@ -45,9 +45,8 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="600dp"
         android:layout_marginTop="350dp"
-        android:layout_marginBottom="-50dp"
         android:backgroundTint="@color/mediumBrown"
         app:cardCornerRadius="15dp"
         app:cardElevation="5dp">
@@ -147,6 +146,16 @@
             android:text="@string/delete_account"
             android:textColor="@color/white"
             android:textAlignment="center"/>
+
+
+
+
+
+
+
+
     </androidx.cardview.widget.CardView>
+
+
 
 </RelativeLayout>
