@@ -32,6 +32,7 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/search_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -140,4 +141,26 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_below="@id/search_box"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="-20dp"
+        app:cardCornerRadius="20dp"
+        android:backgroundTint="@color/mediumBrown">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:text="@string/book_description"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_semibold"/>
+    </androidx.cardview.widget.CardView>
+
+
 </RelativeLayout>

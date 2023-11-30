@@ -15,4 +15,11 @@
         Vivamus et hendrerit risus. Curabitur ac tempor tortor.
         Mauris dignissim malesuada volutpat.
     </string>
+
+    <string name="book_description">
+        Enjoy the convenience of booking cafe seats online. Simply select your cafe, date, and time.
+    </string>
+    <string name="app_description">
+        Discover a variety of cafe options arround you. Book your seat in seconds.
+    </string>
 </resources>
