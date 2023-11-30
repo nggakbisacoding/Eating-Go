@@ -100,7 +100,7 @@
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Sleman, Yogyakarta"
                 android:textColor="@color/white"
-                android:textSize="15sp"/>
+                android:textSize="10sp"/>
             <TextView
                 android:id="@+id/tanggalBooking"
                 android:layout_width="wrap_content"
@@ -110,7 +110,7 @@
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="25 September 2023"
                 android:textColor="@color/white"
-                android:textSize="15sp"/>
+                android:textSize="10sp"/>
             <TextView
                 android:id="@+id/waktuBooking"
                 android:layout_width="wrap_content"
@@ -120,7 +120,7 @@
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="16.00-18.00 WIB"
                 android:textColor="@color/white"
-                android:textSize="15sp"/>
+                android:textSize="10sp"/>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
