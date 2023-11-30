@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/beige"
-    tools:context=".SearchCafeActivity">
+    tools:context=".BookSeatMenuActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,13 +25,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/festina_lente"
-            android:paddingStart="100dp"
+            android:paddingStart="110dp"
             android:text="Search"
             android:textColor="@color/mediumBrown"
             android:textSize="25sp" />
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/search_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -118,10 +119,19 @@
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/search_btn"
+                android:id="@+id/sort_btn"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@drawable/button_shape"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Sort"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="160dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="80dp"
+                android:layout_marginStart="50dp"
                 android:background="@drawable/button_shape"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Search"
@@ -132,35 +142,25 @@
 
     </androidx.cardview.widget.CardView>
 
-    <RelativeLayout
-        android:id="@+id/map"
-        android:layout_width="370dp"
-        android:layout_height="340dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="400dp"
-        android:layout_marginEnd="10dp"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <fragment
-            android:id="@+id/myMap"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_below="@id/search_box"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="-20dp"
+        app:cardCornerRadius="20dp"
+        android:backgroundTint="@color/mediumBrown">
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".CafeMap" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:text="@string/book_description"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_semibold"/>
+    </androidx.cardview.widget.CardView>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/myLoc"
-            android:layout_width="50sp"
-            android:layout_height="50sp"
-            android:layout_marginRight="50sp"
-            android:layout_margin="10dp"
-            android:elevation="8dp"
-            android:backgroundTint="#fff"
-            app:borderWidth="0dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:src="@drawable/baseline_my_location_24" />
 
-    </RelativeLayout>
 </RelativeLayout>

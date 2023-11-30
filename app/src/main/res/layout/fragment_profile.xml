@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ProfileFragment">
+    tools:context=".Fragments.ProfileFragment">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -22,7 +22,7 @@
             android:src="@drawable/profle_image" />
 
         <TextView
-            android:id="@+id/tvusername"
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -32,12 +32,12 @@
             android:textSize="25dp" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/logout_btn"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="400dp"
             android:backgroundTint="@color/mediumBrown"
-            app:cardCornerRadius="15dp"
+            android:layout_marginBottom="-20dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="5dp">
 
             <androidx.appcompat.widget.AppCompatButton
@@ -65,7 +65,6 @@
                 android:textColor="@color/white" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/faq_btn"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="30dp"

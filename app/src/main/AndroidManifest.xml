@@ -32,6 +32,9 @@
         <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBg6QdmQM8zWIdmXk7ova_5Xj8B3KO4xcY"/>
         <activity
+            android:name=".SplashPageActivity"
+            android:exported="false" />
+        <activity
             android:name=".AccountDetailPageActivity"
             android:exported="false" />
         <activity

@@ -30,98 +30,23 @@
             android:textColor="@color/mediumBrown"
             android:textSize="25sp" />
     </LinearLayout>
+<!--    space buat tombol sort-->
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp">
 
-        <RelativeLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_histori"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            android:paddingTop="15dp"
+            tools:listitem="@layout/history_item_holder"
+            tools:itemCount="10"/>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:backgroundTint="@color/lightBrown"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="10dp">
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:src="@drawable/small_kopi_kulo"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_marginStart="150dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="90dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginStart="10dp"
-                        android:text="Kopi Kulo"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"/>
-                    <TextView
-                        android:layout_width="130dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginStart="10dp"
-                        android:text="Sleman, Yogyakarta 22 September 2023
-                        16.00"
-                        android:textColor="@color/white"
-                        android:textSize="15sp"
-                        />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="170dp"
-                android:backgroundTint="@color/lightBrown"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="10dp">
-                <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:src="@drawable/small_arah_pandawa"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_marginStart="150dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="150dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginStart="10dp"
-                        android:text="Arah Pandawa"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"/>
-                    <TextView
-                        android:layout_width="130dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="Sleman, Yogyakarta 22 September 2023
-                        16.00"
-                        android:textColor="@color/white"
-                        android:textSize="15sp"
-                        />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-        </RelativeLayout>
     </ScrollView>
 
 

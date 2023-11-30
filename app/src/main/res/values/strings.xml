@@ -15,54 +15,11 @@
         Vivamus et hendrerit risus. Curabitur ac tempor tortor.
         Mauris dignissim malesuada volutpat.
     </string>
-    <string name="complete_your">Complete Your</string>
-    <string name="account_setup">Account Setup !</string>
-    <string name="i_am_a_user">I Am a User</string>
-    <string name="i_am_a_employee">I Am a Employee</string>
-    <string name="or">/</string>
-    <string name="register_as_employee">Register As Employee</string>
-    <string name="register_as_user">Register As User</string>
-    <string name="first_name">First name</string>
-    <string name="last_name">Last name</string>
-    <string name="email_address">Email Address</string>
-    <string name="password">Password</string>
-    <string name="register">Register</string>
-    <string name="hey_user">Hey, User</string>
-    <string name="login_now">Login Now!</string>
-    <string name="login_as_employee">Login As Employee</string>
-    <string name="login_as_user">Login As User</string>
-    <string name="email_phone">Email / Phone</string>
-    <string name="login">Login</string>
-    <string name="already_have_account">Already Have Account?</string>
-    <string name="register_now">Register Now!</string>
-    <string name="don_t_have_account">Don\'t Have Account?</string>
-    <string name="welcome">Welcome!</string>
-    <string name="username">Username</string>
-    <string name="active_book">Active Book</string>
-    <string name="cafe_name">Disable by Now</string>
-    <string name="alamat">Sleman, Yogyakarta</string>
-    <string name="tanggal">25 September 2023</string>
-    <string name="jam_default">16.00-18.00 WIB</string>
-    <string name="none">None</string>
-    <string name="about">About</string>
-    <string name="tentang_aplikasi_eatinggo">Tentang Aplikasi EatingGo</string>
-    <string name="account_detail">Account Detail</string>
-    <string name="delete_account">Delete Account</string>
-    <string name="phone_number">0812345678</string>
-    <string name="example_email">email@gmail.com</string>
-    <string name="near_me">Near Me</string>
-    <string name="confirmation_password">Confirmation Password</string>
-    <string name="logout_account">Logout Account</string>
-    <string name="update_account">Update Account</string>
-    <string name="new_password">New Password</string>
-    <string name="current_password">Current Password</string>
-    <string name="otp">otp</string>
-    <string name="can_t_change_for_now">Can\'t change for now</string>
-    <string name="disable">Phone (Disable for Now)</string>
-    <string name="are_you_sure">Are You Sure?</string>
-    <string name="cancel">Cancel</string>
-    <string name="delete_now">Delete Now!</string>
-    <string name="alamat_cafe">Jalan Kaliurang No.KM. 5,2, Manggung, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55284.</string>
-    <string name="seat_available">Seat Available</string>
-    <string name="current_location">Current Location</string>
+
+    <string name="book_description">
+        Enjoy the convenience of booking cafe seats online. Simply select your cafe, date, and time.
+    </string>
+    <string name="app_description">
+        Discover a variety of cafe options arround you. Book your seat in seconds.
+    </string>
 </resources>
