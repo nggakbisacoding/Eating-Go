@@ -62,4 +62,7 @@
     <string name="are_you_sure">Are You Sure?</string>
     <string name="cancel">Cancel</string>
     <string name="delete_now">Delete Now!</string>
+    <string name="alamat_cafe">Jalan Kaliurang No.KM. 5,2, Manggung, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55284.</string>
+    <string name="seat_available">Seat Available</string>
+    <string name="current_location">Current Location</string>
 </resources>

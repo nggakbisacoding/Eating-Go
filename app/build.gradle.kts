@@ -18,10 +18,10 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
         }
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -45,7 +45,6 @@ android {
         viewBinding = true
     }
 }
-
 dependencies {
     implementation("androidx.databinding:databinding-runtime:8.1.4")
     val roomVersion = "2.6.0"
@@ -96,20 +95,17 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-database:20.3.0")
     implementation("com.google.firebase:firebase-storage:20.3.0")
+    implementation("com.google.firebase:firebase-firestore:24.9.1")
     implementation("com.google.firebase:firebase-perf-ktx:20.5.1")
 
     //Glide ImageURI
     implementation("com.github.bumptech.glide:glide:4.16.0")
-    ksp("com.github.bumptech.glide:compiler:4.14.2")
-
-    //Gson
-    implementation("com.google.code.gson:gson:2.10.1")
-
-    //Json
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
 
     //retropit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
+
+    //place sdk
+    implementation("com.google.android.libraries.places:places:3.3.0")
 }

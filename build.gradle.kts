@@ -7,7 +7,13 @@ plugins {
     id("com.google.devtools.ksp") version "1.9.10-1.0.13" apply false
 }
 buildscript {
+    repositories {
+        mavenLocal()
+        google()
+        mavenCentral()
+    }
     dependencies {
+        classpath("com.android.tools.build:gradle:7.2.2")
         classpath("com.google.gms:google-services:4.4.0")
     }
 }

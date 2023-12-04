@@ -39,7 +39,6 @@ class ProfileFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onStart() {
         super.onStart()
         binding.tvusername.text = auth.currentUser!!.displayName.toString()

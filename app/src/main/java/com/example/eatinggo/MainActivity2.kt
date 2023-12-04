@@ -1,6 +1,8 @@
 package com.example.eatinggo
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -18,6 +20,14 @@ import com.google.firebase.auth.auth
 class MainActivity2 : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding : ActivityMainBinding
+    companion object {
+        const val SHARED_PREFS = "shared_prefs"
+        const val EMAIL_KEY = "email_key"
+        const val PASSWORD_KEY = "password_key"
+    }
+    private lateinit var sharedpreferences: SharedPreferences
+    private var email: String? = null
+    private var password: String? = null
 
     //fungsi untuk switch fragment
     private fun switchFragment(fragment: Fragment) {
@@ -32,6 +42,9 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
+        email = sharedpreferences.getString(EMAIL_KEY, null)
+        password = sharedpreferences.getString(PASSWORD_KEY, null)
         auth = Firebase.auth
         val actionBar = supportActionBar
 
@@ -54,7 +67,11 @@ class MainActivity2 : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
+        if(email != auth.currentUser?.email.toString()) {
+            val editor = sharedpreferences.edit()
+            editor.clear()
+            editor.apply()
+        }
         val currentUser = auth.currentUser
         updateUI(currentUser)
     }

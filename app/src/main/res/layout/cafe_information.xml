@@ -17,7 +17,7 @@
             android:id="@+id/back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:paddingStart="20dp"
             android:paddingEnd="0dp"
             android:src="@drawable/ic_back_arrow"
@@ -37,138 +37,46 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="65dp"
         android:backgroundTint="@color/mediumBrown"
         app:cardCornerRadius="15dp"
         app:cardElevation="10dp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/my_location"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:paddingTop="0dp"
+                android:paddingStart="80dp"
+                android:paddingEnd="20dp"
+                android:text="@string/alamat"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="70dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="350dp"
-                    android:layout_height="300dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="0dp"
-                    android:backgroundTint="@color/lightBrown"
-                    app:cardCornerRadius="15dp">
-
-                    <ImageView
-                        android:id="@+id/cafe_image"
-                        android:layout_width="350dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/kopi_kulo"
-                        android:contentDescription="@string/none" />
-
-                    <TextView
-                        android:id="@+id/cafe_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="130dp"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="Cofee Kulo"
-                        android:textColor="@color/white"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/cafe_address"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="160dp"
-                        android:layout_marginEnd="10dp"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="Jalan Kaliurang No.KM. 5,2, Manggung,
-                 Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah
-                 Istimewa Yogyakarta 55284."
-                        android:textColor="@color/white"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/seat"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="250dp"
-                        android:layout_marginEnd="10dp"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="20"
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="35dp"
-                        android:layout_marginTop="250dp"
-                        android:layout_marginEnd="10dp"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="Seat Available"
-                        android:textColor="@color/white" />
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="350dp"
-                    android:layout_height="300dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="320dp"
-                    android:backgroundTint="@color/lightBrown"
-                    app:cardCornerRadius="15dp">
-
-                    <ImageView
-                        android:id="@+id/cafe_image2"
-                        android:layout_width="350dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/arah_pandawa" />
-
-                    <TextView
-                        android:id="@+id/cafe_name2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="130dp"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="Arah Pandawa"
-                        android:textColor="@color/white"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/cafe_address2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="160dp"
-                        android:layout_marginEnd="10dp"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="Jalan Kaliurang No.KM. 5,2, Manggung,
-                 Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah
-                 Istimewa Yogyakarta 55284."
-                        android:textColor="@color/white"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="250dp"
-                        android:layout_marginEnd="10dp"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="20 Seat Available"
-                        android:textColor="@color/white" />
-
-                </androidx.cardview.widget.CardView>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/cafe_list_view" />
 
             </RelativeLayout>
 

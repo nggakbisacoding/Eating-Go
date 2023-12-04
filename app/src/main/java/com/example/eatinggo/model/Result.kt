@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class Result(
     @SerializedName("results")
-    val data: List<Location>,
+    val data: List<Location>
 )
