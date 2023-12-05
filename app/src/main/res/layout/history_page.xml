@@ -45,9 +45,6 @@
             android:paddingTop="15dp"
             tools:listitem="@layout/history_item_holder"
             tools:itemCount="10"/>
-
-
     </ScrollView>
-
 
 </RelativeLayout>
