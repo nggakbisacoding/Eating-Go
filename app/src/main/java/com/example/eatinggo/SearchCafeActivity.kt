@@ -6,6 +6,7 @@ import android.app.TimePickerDialog
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -13,17 +14,20 @@ import androidx.core.app.ActivityCompat
 import com.example.eatinggo.databinding.SearchCafeBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.MapsInitializer
+import com.google.android.gms.maps.OnMapsSdkInitializedCallback
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.util.Calendar
 import java.util.Locale
 
-class SearchCafeActivity : AppCompatActivity() {
+class SearchCafeActivity : AppCompatActivity(), OnMapsSdkInitializedCallback{
     private lateinit var binding: SearchCafeBinding
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
+        MapsInitializer.initialize(applicationContext, MapsInitializer.Renderer.LATEST, this)
         binding = SearchCafeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         fusedLocationProviderClient =  LocationServices.getFusedLocationProviderClient(baseContext)
@@ -53,6 +57,7 @@ class SearchCafeActivity : AppCompatActivity() {
         val timeSetListener = TimePickerDialog.OnTimeSetListener { _, hourOfDay, minutes ->
             cal.set(Calendar.HOUR_OF_DAY, hourOfDay)
             cal.set(Calendar.MINUTE, minutes)
+            cal.set(Calendar.AM_PM, 0)
 
             val myFormat = "hh:mm a"
             val sdf = SimpleDateFormat(myFormat, Locale.getDefault())
@@ -99,6 +104,13 @@ class SearchCafeActivity : AppCompatActivity() {
                 val myloc = "${it.latitude},${it.longitude}"
                 binding.inputLocation.setText(myloc)
             }
+        }
+    }
+
+    override fun onMapsSdkInitialized(p0: MapsInitializer.Renderer) {
+        when (p0) {
+            MapsInitializer.Renderer.LATEST -> Log.d("MapsDemo", "The latest version of the renderer is used.")
+            MapsInitializer.Renderer.LEGACY -> Log.d("MapsDemo", "The legacy version of the renderer is used.")
         }
     }
 }

@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import com.example.eatinggo.BuildConfig
 import com.example.eatinggo.CafeInformationActivity
 import com.example.eatinggo.HistoryPageActivity
 import com.example.eatinggo.SearchCafeActivity
@@ -84,7 +85,6 @@ class HomeFragment : Fragment() {
                 Log.d("API", t.toString())
             }
         })
-        println(address)
     }
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -107,4 +107,4 @@ class HomeFragment : Fragment() {
     }
 }
 
-private const val GMAPS_API_KEY = "AIzaSyBg6QdmQM8zWIdmXk7ova_5Xj8B3KO4xcY"
+private const val GMAPS_API_KEY = BuildConfig.PLACES_API_KEY

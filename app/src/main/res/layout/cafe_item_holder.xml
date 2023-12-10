@@ -13,6 +13,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="0dp"
         android:backgroundTint="@color/lightBrown"
+        app:cardElevation="2dp"
         app:cardCornerRadius="15dp">
 
         <ImageView
@@ -36,60 +37,6 @@
 
         <TextView
             android:id="@+id/cafe_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="160dp"
-            android:layout_marginEnd="10dp"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="Jalan Kaliurang No.KM. 5,2, Manggung,
-                 Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah
-                 Istimewa Yogyakarta 55284."
-            android:textColor="@color/white"
-            android:textSize="15sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="250dp"
-            android:layout_marginEnd="10dp"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="20 Seat Available"
-            android:textColor="@color/white" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:clickable="true"
-        android:layout_width="350dp"
-        android:layout_height="300dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="320dp"
-        android:backgroundTint="@color/lightBrown"
-        app:cardCornerRadius="15dp">
-
-        <ImageView
-            android:id="@+id/cafe_image2"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/arah_pandawa" />
-
-        <TextView
-            android:id="@+id/cafe_name2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="130dp"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="Arah Pandawa"
-            android:textColor="@color/white"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/cafe_address2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"

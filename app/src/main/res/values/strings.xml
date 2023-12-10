@@ -65,4 +65,18 @@
     <string name="alamat_cafe">Jalan Kaliurang No.KM. 5,2, Manggung, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55284.</string>
     <string name="seat_available">Seat Available</string>
     <string name="current_location">Current Location</string>
+    <string name="book_description">
+        Enjoy the convenience of booking cafe seats online. Simply select your cafe, date, and time.
+    </string>
+    <string name="app_description">
+        Discover a variety of cafe options arround you. Book your seat in seconds.
+    </string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="faq">faq</string>
+    <string name="log_out">Log out</string>
+    <string name="map_id">d98b4603250dacda</string>
+    <string name="sure">Sure</string>
+    <string name="regis_as_employee">Are you sure regis as Employee?</string>
+    <string name="id">We need Identify your ID later</string>
+    <string name="no_rev">No Reservation Available</string>
 </resources>

@@ -72,7 +72,7 @@ class AccountDetailPageActivity : AppCompatActivity() {
         val handler = Handler(Looper.getMainLooper())
         var image: Bitmap?
         var url: String
-        firedb.child("users").child(auth.currentUser!!.uid).child("photoUri").get().addOnSuccessListener {
+        firedb.child("users").child(auth.currentUser!!.uid).child("profileImage").get().addOnSuccessListener {
             url = it.value.toString()
             println(it.key + " " + it.value)
             executor.execute {
@@ -118,7 +118,7 @@ class AccountDetailPageActivity : AppCompatActivity() {
                     if(it.isSuccessful) {
                         firedb.child("users").removeValue()
                         Toast.makeText(baseContext, "Account Delete Successfully", Toast.LENGTH_LONG).show()
-                        startActivity(Intent(baseContext, LoginPageActivity::class.java))
+                        startActivity(Intent(baseContext, SplashPageActivity::class.java))
                         finish()
                     }
                 }
@@ -165,7 +165,7 @@ class AccountDetailPageActivity : AppCompatActivity() {
                     val photoUri: String?
                     photoUri = url.toString()
                     imageUris = Uri.parse(photoUri)
-                    firedb.child("users").child(auth.currentUser!!.uid).child("photoUri").setValue(photoUri)
+                    firedb.child("users").child(auth.currentUser!!.uid).child("profileImage").setValue(photoUri)
                 }
             }
             binding.profileImage.setImageURI(uri)

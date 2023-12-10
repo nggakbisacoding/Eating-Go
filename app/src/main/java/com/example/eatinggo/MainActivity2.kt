@@ -1,25 +1,29 @@
 package com.example.eatinggo
 
+// import com.example.eatinggo.fragments.ActiveBookFragment
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-// import com.example.eatinggo.fragments.ActiveBookFragment
-import com.example.eatinggo.fragments.HomeFragment
-import com.example.eatinggo.fragments.ProfileFragment
 import com.example.eatinggo.databinding.ActivityMainBinding
+import com.example.eatinggo.fragments.HomeFragment
+import com.example.eatinggo.fragments.HomepageEmployeeFragment
+import com.example.eatinggo.fragments.ProfileFragment
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.database
 
 class MainActivity2 : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
     private lateinit var binding : ActivityMainBinding
+    private lateinit var auth: FirebaseAuth
+    private lateinit var database: DatabaseReference
     companion object {
         const val SHARED_PREFS = "shared_prefs"
         const val EMAIL_KEY = "email_key"
@@ -28,6 +32,7 @@ class MainActivity2 : AppCompatActivity() {
     private lateinit var sharedpreferences: SharedPreferences
     private var email: String? = null
     private var password: String? = null
+    private var typeUser: String? = null
 
     //fungsi untuk switch fragment
     private fun switchFragment(fragment: Fragment) {
@@ -42,10 +47,14 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        database = Firebase.database.reference
+        auth = Firebase.auth
+        database.child("users").child(auth.currentUser!!.uid).child("userCategory").get().addOnSuccessListener { data ->
+            typeUser = data.value.toString()
+        }
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
         email = sharedpreferences.getString(EMAIL_KEY, null)
         password = sharedpreferences.getString(PASSWORD_KEY, null)
-        auth = Firebase.auth
         val actionBar = supportActionBar
 
         if (actionBar != null) {
@@ -53,9 +62,9 @@ class MainActivity2 : AppCompatActivity() {
             actionBar.setDisplayHomeAsUpEnabled(true)
         }
         // atur tampilan awal dari fragement
-        binding.bottomNavigationView.setOnItemSelectedListener{
-            when(it.itemId){
-                R.id.home -> switchFragment(HomeFragment())
+        binding.bottomNavigationView.setOnItemSelectedListener{ item ->
+            when(item.itemId){
+                R.id.home -> if(typeUser == "user") switchFragment(HomeFragment()) else switchFragment(HomepageEmployeeFragment())
                 R.id.active_book -> Toast.makeText(baseContext, "This Feature Disable by Now", Toast.LENGTH_LONG).show()
                 R.id.profile -> switchFragment(ProfileFragment())
                 else ->{
@@ -78,10 +87,10 @@ class MainActivity2 : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         if(user == null) {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            startActivity(Intent(this, SplashPageActivity::class.java))
             finish()
         } else {
-            switchFragment(HomeFragment())
+            if(typeUser == "user") switchFragment(HomeFragment()) else switchFragment(HomepageEmployeeFragment())
         }
     }
 
@@ -100,6 +109,10 @@ class MainActivity2 : AppCompatActivity() {
                 return true
             }
             R.id.back_btn -> {
+                finish()
+                return true
+            }
+            R.drawable.ic_back_arrow -> {
                 finish()
                 return true
             }

@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import com.example.eatinggo.AboutPageActivity
 import com.example.eatinggo.AccountDetailPageActivity
 import com.example.eatinggo.FaqPageActivity
-import com.example.eatinggo.LoginPageActivity
+import com.example.eatinggo.SplashPageActivity
 import com.example.eatinggo.databinding.FragmentProfileBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -34,6 +34,7 @@ class ProfileFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         firedb = Firebase.database.reference
+        firedb.keepSynced(true)
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         auth = Firebase.auth
         return binding.root
@@ -41,13 +42,13 @@ class ProfileFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        binding.tvusername.text = auth.currentUser!!.displayName.toString()
+        binding.username.text = auth.currentUser!!.displayName.toString()
 
         val executor = Executors.newSingleThreadExecutor()
         val handler = Handler(Looper.getMainLooper())
         var image: Bitmap?
         var url: String
-        firedb.child("users").child(auth.currentUser!!.uid).child("photoUri").get().addOnSuccessListener {
+        firedb.child("users").child(auth.currentUser!!.uid).child("profileImage").get().addOnSuccessListener {
                 url = it.value.toString()
             println(it.key + " " + it.value)
             executor.execute {
@@ -72,13 +73,13 @@ class ProfileFragment : Fragment() {
             startActivity(Intent(requireContext(), AboutPageActivity::class.java))
         }
 
-        binding.faqBtn.setOnClickListener {
+        binding.faq.setOnClickListener {
             startActivity(Intent(requireContext(), FaqPageActivity::class.java))
         }
 
         binding.logoutBtn.setOnClickListener {
             Firebase.auth.signOut()
-            startActivity(Intent(requireContext(), LoginPageActivity::class.java))
+            startActivity(Intent(requireContext(), SplashPageActivity::class.java))
         }
     }
 }

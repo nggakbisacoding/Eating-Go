@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -25,6 +26,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: RegisterPageBinding
     private lateinit var etEmail: EditText
     private lateinit var etPass: EditText
+    private lateinit var etconfPass: EditText
     private lateinit var database: DatabaseReference
     private lateinit var btnSignUp: Button
     private lateinit var tvRedirectRegis: TextView
@@ -33,6 +35,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var storageRef: StorageReference
     private lateinit var etLastName: EditText
     private lateinit var auth: FirebaseAuth
+    private var regisType = "user"
 
     companion object {
         const val SHARED_PREFS = "shared_prefs"
@@ -54,13 +57,13 @@ class RegisterActivity : AppCompatActivity() {
         etLastName = findViewById(R.id.reg_lastname)
         etEmail = findViewById(R.id.reg_email)
         etPass = findViewById(R.id.reg_password)
+        etconfPass = findViewById(R.id.conf_password)
         btnSignUp = findViewById(R.id.register_btn)
         tvRedirectRegis = findViewById(R.id.employee_regis)
         tvRegis = findViewById(R.id.tvregis_employee)
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
         email = sharedpreferences.getString(EMAIL_KEY, null)
         password = sharedpreferences.getString(PASSWORD_KEY, null)
-        var regisType = "user"
 
         /*
         var phoneNumber
@@ -115,14 +118,6 @@ class RegisterActivity : AppCompatActivity() {
         }
          */
 
-        btnSignUp.setOnClickListener {
-            signUpUser(etFirstName.text.toString().replaceFirstChar { firstChar ->
-                firstChar.uppercase()
-            }, etLastName.text.toString().replaceFirstChar { firstChar ->
-                firstChar.uppercase()
-            })
-        }
-
         tvRedirectRegis.setOnClickListener {
             when (regisType) {
                 "employee" -> {
@@ -141,6 +136,32 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
+        btnSignUp.setOnClickListener {
+            if(regisType == "user") {
+                signUpUser(etFirstName.text.toString().replaceFirstChar { firstChar ->
+                    firstChar.uppercase()
+                }, etLastName.text.toString().replaceFirstChar { firstChar ->
+                    firstChar.uppercase()
+                })
+            } else {
+                binding.content.visibility = View.GONE
+                binding.registerBtn.visibility = View.GONE
+                binding.confirmDelete.visibility = View.VISIBLE
+                binding.sure.setOnClickListener {
+                    signUpUser(etFirstName.text.toString().replaceFirstChar { firstChar ->
+                        firstChar.uppercase()
+                    }, etLastName.text.toString().replaceFirstChar { firstChar ->
+                        firstChar.uppercase()
+                    })
+                }
+                binding.cancel.setOnClickListener {
+                    binding.content.visibility = View.VISIBLE
+                    binding.registerBtn.visibility = View.VISIBLE
+                    binding.confirmDelete.visibility = View.GONE
+                }
+            }
+        }
+
         findViewById<TextView>(R.id.login_now).setOnClickListener {
             this.startActivity(Intent(this@RegisterActivity, LoginPageActivity::class.java))
             finish()
@@ -154,12 +175,12 @@ class RegisterActivity : AppCompatActivity() {
             editor.clear()
             editor.apply()
         }
-        updateUI(auth.currentUser)
     }
 
     private fun signUpUser(firstName: String, lastName: String) {
         val email = etEmail.text.toString()
         val pass = etPass.text.toString()
+        val confpass = etconfPass.text.toString()
 
         // check pass
         if (email.isBlank() || pass.isBlank()) {
@@ -167,29 +188,31 @@ class RegisterActivity : AppCompatActivity() {
             return
         }
 
-        if (pass.length < 8) {
-            Toast.makeText(this, "Password need 8 character or more", Toast.LENGTH_SHORT)
-                .show()
+        if(pass != confpass) {
+            Toast.makeText(this, "Password and Confirmation doesn't match", Toast.LENGTH_SHORT).show()
             return
+        } else {
+            if (pass.length < 8) {
+                Toast.makeText(this, "Password need 8 character or more", Toast.LENGTH_SHORT).show()
+                return
+            }
         }
         auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
-                Toast.makeText(this, "Successfully Singed Up", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Successfully Singed Up Please Verify your email", Toast.LENGTH_SHORT).show()
                 val user = auth.currentUser
                 storageRef.child("file/PuraUlunDanuBratan.jpg").downloadUrl.addOnSuccessListener {
-                    val userdata = User(firstName, lastName, email, pass, it.toString())
-                    database.child("users").child(user?.uid.toString()).setValue(userdata)
                     val profileUpdates = userProfileChangeRequest{
                         displayName = "$firstName $lastName"
                         photoUri = it
                     }
-                    user!!.updateProfile(profileUpdates).addOnCompleteListener { voidTask ->
+                    database.child("users").child(user?.uid.toString()).setValue(User(id = user?.uid!!, firstName = firstName, lastName = lastName, phoneNumber = null, email = email, password = pass, profileImage = profileUpdates.photoUri.toString(), location = null, onSeat = false, userCategory = regisType))
+                    user.updateProfile(profileUpdates).addOnCompleteListener { voidTask ->
                         if(voidTask.isSuccessful) {
                             val editor = sharedpreferences.edit()
 
                             // below two lines will put values for
                             // email and password in shared preferences.
-                            editor.putString(LoginPageActivity.EMAIL_KEY, email)
                             editor.putString(LoginPageActivity.PASSWORD_KEY, pass)
                             // to save our data with key and value.
                             editor.apply()
@@ -203,71 +226,21 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    /* SMS Verification For Phone Number Register Access (Disable For Now)
-    private fun startPhoneNumberVerification(phoneNumber: String) {
-        // [START start_phone_auth]
-        val options = PhoneAuthOptions.newBuilder(auth)
-            .setPhoneNumber(phoneNumber) // Phone number to verify
-            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-            .setActivity(this) // Activity (for callback binding)
-            .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
-            .build()
-        PhoneAuthProvider.verifyPhoneNumber(options)
-        // [END start_phone_auth]
-    }
-
-    private fun verifyPhoneNumberWithCode(verificationId: String?, code: String) {
-        // [START verify_with_code]
-        val credential = PhoneAuthProvider.getCredential(verificationId!!, code)
-        // [END verify_with_code]
-    }
-
-    // [START resend_verification]
-    private fun resendVerificationCode(
-        phoneNumber: String,
-        token: PhoneAuthProvider.ForceResendingToken?,
-    ) {
-        val optionsBuilder = PhoneAuthOptions.newBuilder(auth)
-            .setPhoneNumber(phoneNumber) // Phone number to verify
-            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-            .setActivity(this) // (optional) Activity for callback binding
-            // If no activity is passed, reCAPTCHA verification can not be used.
-            .setCallbacks(callbacks) // OnVerificationStateChangedCallbacks
-        if (token != null) {
-            optionsBuilder.setForceResendingToken(token) // callback's ForceResendingToken
-        }
-        PhoneAuthProvider.verifyPhoneNumber(optionsBuilder.build())
-    }
-    // [END resend_verification]
-
-    // [START sign_in_with_phone]
-    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithCredential:success")
-                    val user = task.result?.user
-                    updateUI(user)
-                } else {
-                    // Sign in failed, display a message and update the UI
-                    Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    if (task.exception is FirebaseAuthInvalidCredentialsException) {
-                        // The verification code entered was invalid
-                        Toast.makeText(this@RegisterActivity, "Verification code Invalid", Toast.LENGTH_LONG).show()
-                    }
-                    val user = null
-                    updateUI(user)
-                }
+    private fun sendEmailVerify(user: FirebaseUser?) {
+        user?.sendEmailVerification()?.addOnCompleteListener {
+            if(it.isSuccessful) {
+                Toast.makeText(this, "Please check your email", Toast.LENGTH_LONG).show()
             }
+        }
     }
-     */
 
     private fun updateUI(user: FirebaseUser?) {
-        if(user == null) {
-            return
+        if(!user?.isEmailVerified!!) {
+            sendEmailVerify(user)
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(baseContext, LoginPageActivity::class.java))
+            finish()
         }
-        this.startActivity(Intent(baseContext, MainActivity2::class.java))
-        finish()
+        return
     }
 }

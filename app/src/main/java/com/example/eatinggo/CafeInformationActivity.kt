@@ -19,8 +19,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eatinggo.data.ControllerDatabase
 import com.example.eatinggo.databinding.CafeInformationBinding
-import com.example.eatinggo.model.CafeDisplay
+import com.example.eatinggo.model.CafeResult
 import com.example.eatinggo.model.Result
+import com.example.eatinggo.util.Api
 import com.example.eatinggo.util.ApiClient
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
@@ -40,8 +41,11 @@ class CafeInformationActivity : AppCompatActivity() {
     private lateinit var binding: CafeInformationBinding
     private lateinit var firedb: DatabaseReference
     private val PERMISSION_ID = 42
+    private var latlng = ""
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
-    private var data = ArrayList<CafeDisplay>()
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var manager: RecyclerView.LayoutManager
+    private lateinit var myAdapter: RecyclerView.Adapter<*>
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,17 +58,14 @@ class CafeInformationActivity : AppCompatActivity() {
             onBackPressedDispatcher.onBackPressed()
         }
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
-        recyclerview.layoutManager = LinearLayoutManager(this)
-        val adapter = CafeListAdapter(data)
-        recyclerview.adapter = adapter
 
         getLastLocation()
+        manager = LinearLayoutManager(this)
     }
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     @SuppressLint("MissingPermission", "SetTextI18n")
-    private fun getLastLocation() {
+    private fun getLastLocation(){
         if (checkPermissions()) {
             if (isLocationEnabled()) {
 
@@ -73,8 +74,9 @@ class CafeInformationActivity : AppCompatActivity() {
                     if (location == null) {
                         requestNewLocationData()
                     } else {
-                        println(location.latitude + location.longitude)
                         getAddress(location.latitude, location.longitude)
+                        latlng = "${location.latitude},${location.longitude}"
+                        getAllData(latlng)
                     }
                 }
             } else {
@@ -117,18 +119,14 @@ class CafeInformationActivity : AppCompatActivity() {
     }
 
     private fun checkPermissions(): Boolean {
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.ACCESS_COARSE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED &&
-            ActivityCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
-        ) {
-            return true
-        }
-        return false
+        return ActivityCompat.checkSelfPermission(
+            this,
+            android.Manifest.permission.ACCESS_COARSE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED
     }
 
     private fun requestPermissions() {
@@ -164,12 +162,12 @@ class CafeInformationActivity : AppCompatActivity() {
         val client = ApiClient.getInstance()
         val address = ArrayList<String>()
         val lat = "$latitude,$longitude"
-        val response = client.getLocation(lat, GMAPS_API_KEY)
+        val response = client.getLocation(lat, BuildConfig.PLACES_API_KEY)
         response.enqueue(object : Callback<Result> {
             override fun onResponse(call: Call<Result>, response: Response<Result>) {
-                for (i in response.body()?.data!!) {
-                    address.add(i.location)
-                    binding.myLocation.text = i.location
+                println(response.body()!!.data)
+                for(i in response.body()!!.data) {
+                    binding.showLocation.text = i.location
                     break
                 }
             }
@@ -179,6 +177,22 @@ class CafeInformationActivity : AppCompatActivity() {
         })
         println(address)
     }
-}
 
-private const val GMAPS_API_KEY = "AIzaSyBg6QdmQM8zWIdmXk7ova_5Xj8B3KO4xcY"
+    private fun getAllData(latlng: String){
+        Api.retrofitService.getAllData(latlng, BuildConfig.PLACES_API_KEY).enqueue(object: Callback<CafeResult>{
+            override fun onResponse(call: Call<CafeResult>, response: Response<CafeResult>) {
+                if(response.isSuccessful){
+                    println(response.body()!!.data)
+                    recyclerView = findViewById<RecyclerView>(R.id.rv_cafe_item).apply{
+                        myAdapter = CafeListAdapter(response.body()!!.data)
+                        layoutManager = manager
+                        adapter = myAdapter
+                    }
+                }
+            }
+            override fun onFailure(call: Call<CafeResult>, t: Throwable) {
+                t.printStackTrace()
+            }
+        })
+    }
+}

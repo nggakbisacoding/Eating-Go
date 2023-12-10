@@ -11,12 +11,15 @@ import com.example.eatinggo.model.Chair
 import com.example.eatinggo.model.ChairDao
 import com.example.eatinggo.model.History
 import com.example.eatinggo.model.HistoryDao
+import com.example.eatinggo.model.User
+import com.example.eatinggo.model.UserDao
 
 // Annotates class to be a Room Database with a table (entity) of the Word class
 @TypeConverters(DateConverter::class)
-@Database(entities = [Chair::class, History::class, Cafe::class], version = 1, exportSchema = true)
+@Database(entities = [User::class, Chair::class, History::class, Cafe::class], version = 1, exportSchema = true)
 abstract class ControllerDatabase : RoomDatabase() {
 
+    abstract fun UserDao(): UserDao?
     abstract fun CafeDao(): CafeDao?
     abstract fun HistoryDao(): HistoryDao?
     abstract fun ChairDao(): ChairDao?

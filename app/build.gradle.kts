@@ -5,6 +5,8 @@ plugins {
     id("com.google.firebase.firebase-perf")
     id("com.google.devtools.ksp")
     id("kotlin-parcelize")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+
 }
 
 android {
@@ -13,11 +15,11 @@ android {
 
     defaultConfig {
         applicationId = "com.example.eatinggo"
-        minSdk = 21
+        minSdk = 24
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
-
+        multiDexEnabled = true
 
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
@@ -43,11 +45,17 @@ android {
     }
     buildFeatures{
         viewBinding = true
+        buildConfig = true
     }
 }
+
+secrets {
+    defaultPropertiesFileName = "local.defaults.properties"
+}
+
 dependencies {
-    implementation("androidx.databinding:databinding-runtime:8.1.4")
-    val roomVersion = "2.6.0"
+    implementation("androidx.databinding:databinding-runtime:8.2.0")
+    val roomVersion = "2.6.1"
 
     // Room Database
     implementation("androidx.room:room-runtime:$roomVersion")
@@ -72,6 +80,8 @@ dependencies {
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation("com.google.android.gms:play-services-auth-api-phone:18.0.1")
+    implementation("com.google.maps.android:maps-utils-ktx:5.0.0")
+    implementation("com.google.maps.android:places-ktx:3.0.0")
 
     //Ksp
     implementation("com.google.devtools.ksp:symbol-processing-api:1.9.10-1.0.13")
@@ -104,8 +114,13 @@ dependencies {
     //retropit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
 
     //place sdk
     implementation("com.google.android.libraries.places:places:3.3.0")
+
+    //moshi
+    implementation("com.squareup.moshi:moshi:1.15.0")
+    implementation("com.squareup.moshi:moshi-kotlin:1.15.0")
 }

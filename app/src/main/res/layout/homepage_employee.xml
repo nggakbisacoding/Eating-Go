@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/beige"
-    tools:context=".HomepageEmployeeActivity">
+    tools:context=".fragments.HomepageEmployeeFragment">
 
     <TextView
         android:id="@+id/welcome"
@@ -76,84 +76,27 @@
             android:background="@color/white"
             android:layout_gravity="center_horizontal"/>
 
-        <TextView
-            android:id="@+id/user1"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_item"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="30dp"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="User 1"
-            android:textColor="@color/white"
-            android:textSize="15sp"/>
-        <TextView
-            android:id="@+id/book_status1"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="200dp"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="User 1 has booked.."
-            android:textColor="@color/white"
-            android:textSize="15sp"/>
-
-        <View
-            android:layout_width="300dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="73dp"
-            android:background="@color/white"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:listitem="@layout/res_item"/>
 
         <TextView
-            android:id="@+id/user2"
+            android:id="@+id/no_item"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="75dp"
-            android:layout_marginStart="30dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="30dp"
+            android:layout_marginTop="20dp"
+            android:visibility="visible"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="User 2"
             android:textColor="@color/white"
-            android:textSize="15sp"/>
-        <TextView
-            android:id="@+id/book_status2"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="75dp"
-            android:layout_marginStart="200dp"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="User 2 has booked.."
-            android:textColor="@color/white"
-            android:textSize="15sp"/>
-
-        <View
-            android:layout_width="300dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="98dp"
-            android:background="@color/white"
-            android:layout_gravity="center_horizontal"/>
-
-        <TextView
-            android:id="@+id/user3"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginStart="30dp"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="User 3"
-            android:textColor="@color/white"
-            android:textSize="15sp"/>
-        <TextView
-            android:id="@+id/book_status3"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginStart="200dp"
-            android:fontFamily="@font/montserrat_semibold"
-            android:text="User 3 has booked.."
-            android:textColor="@color/white"
-            android:textSize="15sp"/>
-
-
+            android:textSize="20sp"
+            android:text="@string/no_rev"/>
 
     </androidx.cardview.widget.CardView>
 

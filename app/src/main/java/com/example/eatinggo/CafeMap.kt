@@ -40,21 +40,22 @@ class CafeMap : FragmentActivity(), OnMapReadyCallback, OnMapsSdkInitializedCall
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
     private var currentLocations: LatLng = LatLng(20.5, 78.9)
     private val pERMISSION_ID = 42
+    private lateinit var mapsView: SupportMapFragment
     private val permissionCode = 101
     private lateinit var mMap: GoogleMap
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        MapsInitializer.initialize(applicationContext, Renderer.LEGACY, this)
+    override fun onCreate(savedInstanceState: Bundle?){
+        MapsInitializer.initialize(this@CafeMap, Renderer.LATEST, this@CafeMap)
         binding = SearchCafeBinding.inflate(layoutInflater)
+        super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        val apiKey = "AIzaSyBg6QdmQM8zWIdmXk7ova_5Xj8B3KO4xcY"
+        mapsView = (supportFragmentManager.findFragmentById(R.id.myMap) as? SupportMapFragment)!!
+        mapsView.getMapAsync(this)
+        val apiKey = BuildConfig.PLACES_API_KEY
         if (!Places.isInitialized()) {
-            Places.initialize(applicationContext, apiKey)
+            Places.initialize(this, apiKey)
         }
         fusedLocationProviderClient =  LocationServices.getFusedLocationProviderClient(this@CafeMap)
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this@CafeMap)
         binding.myLoc.setOnClickListener {
             fetchLocation()
         }
@@ -74,14 +75,15 @@ class CafeMap : FragmentActivity(), OnMapReadyCallback, OnMapsSdkInitializedCall
         task.addOnSuccessListener {
             if (it != null) {
                 currentLocation = it
-                Toast.makeText(applicationContext, currentLocation.latitude.toString() + "" +
+                Toast.makeText(baseContext, currentLocation.latitude.toString() + "" +
                         currentLocation.longitude, Toast.LENGTH_SHORT).show()
-                val supportMapFragment = (supportFragmentManager.findFragmentById(R.id.myMap) as
-                        SupportMapFragment?)!!
-                supportMapFragment.getMapAsync(this@CafeMap)
+                val mapsView = supportFragmentManager.findFragmentById(R.id.myMap) as? SupportMapFragment
+                mapsView?.getMapAsync(this)
+                }
             }
         }
-    }
+
+    @SuppressLint("PotentialBehaviorOverride")
     override fun onMapReady(googleMap: GoogleMap) {
         val latLng = LatLng(currentLocation.latitude, currentLocation.longitude)
         val markerOptions = MarkerOptions().position(latLng).title("I am here!")
@@ -92,10 +94,34 @@ class CafeMap : FragmentActivity(), OnMapReadyCallback, OnMapsSdkInitializedCall
             val markers = MarkerOptions().position(marker.position).title("Clicked!")
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker.position, 5f))
             googleMap.addMarker(markers)
-            false
+            true
         }
         mMap = googleMap
+    }
 
+    override fun onStart() {
+        super.onStart()
+        mapsView.onStart()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mapsView.onStop()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mapsView.onPause()
+    }
+
+    override fun onLowMemory() {
+        super.onLowMemory()
+        mapsView.onLowMemory()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mapsView.onDestroy()
     }
 
     @SuppressLint("MissingPermission")
@@ -103,8 +129,8 @@ class CafeMap : FragmentActivity(), OnMapReadyCallback, OnMapsSdkInitializedCall
         if (checkPermissions()) {
             if (isLocationEnabled()) {
 
-                mFusedLocationClient.lastLocation.addOnCompleteListener(this) { task ->
-                    val location: Location? = task.result
+                mFusedLocationClient.lastLocation.addOnCompleteListener(this) {
+                    val location: Location? = it.result
                     if (location == null) {
                         requestNewLocationData()
                     } else {
@@ -157,12 +183,8 @@ class CafeMap : FragmentActivity(), OnMapReadyCallback, OnMapsSdkInitializedCall
     // Check if location permissions are
     // granted to the application
     private fun checkPermissions(): Boolean {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
-            ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-        ) {
-            return true
-        }
-        return false
+        return ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
     // Request permissions if not granted before

@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/beige"
-
     tools:context=".SplashPageActivity">
 <!--logo app svg nggak commpat sama IDE-->
+
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_centerHorizontal="true"
-       />
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="90dp"
+        android:src="@mipmap/eating_go" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,26 +48,28 @@
         android:layout_marginBottom="50dp"
         android:orientation="horizontal">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/register_btn"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:clickable="true"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/button_shape"
             android:fontFamily="@font/montserrat_semibold"
-            android:paddingStart="40dp"
-            android:text="Register"
-            android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:text="@string/register"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login_btn"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="170dp"
+            android:layout_marginStart="60dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/button_shape"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="Login"
+            android:text="@string/login"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="20sp" />

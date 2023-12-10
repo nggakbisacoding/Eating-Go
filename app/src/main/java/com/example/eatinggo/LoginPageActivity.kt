@@ -3,20 +3,21 @@ package com.example.eatinggo
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.eatinggo.databinding.LoginPageBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
 
+
 class LoginPageActivity : AppCompatActivity() {
     private lateinit var binding: LoginPageBinding
     private lateinit var switchpage: TextView
-    private lateinit var rolesLogin: TextView
     private lateinit var tvUsername: TextView
     private lateinit var tvPassword: TextView
     private lateinit var auth: FirebaseAuth
@@ -34,35 +35,15 @@ class LoginPageActivity : AppCompatActivity() {
         binding = LoginPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var roles = "user"
         auth = Firebase.auth
 
         tvUsername = findViewById(R.id.login_username)
         tvPassword = findViewById(R.id.login_password)
         switchpage = findViewById(R.id.switch_regis)
-        rolesLogin = findViewById(R.id.employee_login)
 
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
         email = sharedpreferences.getString(EMAIL_KEY, null)
         password = sharedpreferences.getString(PASSWORD_KEY, null)
-
-        rolesLogin.setOnClickListener {
-            when (roles) {
-                "user" -> {
-                    rolesLogin.text = getString(R.string.login_as_user)
-                    findViewById<TextView>(R.id.roles).text = getString(R.string.i_am_a_employee)
-                    roles = "employee"
-                }
-                "employee" -> {
-                    rolesLogin.text = getString(R.string.login_as_employee)
-                    findViewById<TextView>(R.id.roles).text = getString(R.string.i_am_a_user)
-                    roles = "user"
-                }
-                else -> {
-                    Toast.makeText(this@LoginPageActivity, "Invalid Type Login", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
 
         switchpage.setOnClickListener {
             this.startActivity(Intent(this@LoginPageActivity, RegisterActivity::class.java))
@@ -70,14 +51,6 @@ class LoginPageActivity : AppCompatActivity() {
         }
 
         binding.loginBtn.setOnClickListener {
-            val editor = sharedpreferences.edit()
-
-            // below two lines will put values for
-            // email and password in shared preferences.
-            editor.putString(EMAIL_KEY, tvUsername.text.toString())
-            editor.putString(PASSWORD_KEY, tvPassword.text.toString())
-            // to save our data with key and value.
-            editor.apply()
             signIn()
         }
     }
@@ -104,20 +77,31 @@ class LoginPageActivity : AppCompatActivity() {
         }
         auth.signInWithEmailAndPassword(username, password)
             .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show()
-                    val user = auth.currentUser
-                    updateUI(user)
+                if (!task.isSuccessful) {
+                    Log.w("TAG", "signInWithEmail:failed", task.exception)
                 } else {
-                    Toast.makeText(baseContext, "Login failed.", Toast.LENGTH_SHORT).show()
+                    checkIfEmailVerified()
                 }
             }
+    }
+
+    private fun checkIfEmailVerified() {
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user!!.isEmailVerified) {
+            updateUI(user)
+            Toast.makeText(this, "Successfully logged in", Toast.LENGTH_SHORT).show()
+        } else {
+            FirebaseAuth.getInstance().signOut()
+        }
     }
     private fun updateUI(user: FirebaseUser?) {
         if(user == null) {
             return
         }
+        val editor = sharedpreferences.edit()
+        editor.putString(EMAIL_KEY, tvUsername.text.toString())
+        editor.putString(PASSWORD_KEY, tvPassword.text.toString())
+        editor.apply()
         this.startActivity(Intent(baseContext, MainActivity2::class.java))
         finish()
     }
