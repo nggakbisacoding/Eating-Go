@@ -60,7 +60,6 @@
                 android:drawableStart="@drawable/ic_location"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -81,8 +80,5 @@
             </RelativeLayout>
 
         </ScrollView>
-
     </androidx.cardview.widget.CardView>
-
-
 </RelativeLayout>

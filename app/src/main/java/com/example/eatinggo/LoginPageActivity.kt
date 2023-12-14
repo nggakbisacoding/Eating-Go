@@ -105,6 +105,7 @@ class LoginPageActivity : AppCompatActivity() {
     private fun signIn(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
         checkIfEmailVerified()
+        checkShared(email, password)
     }
 
     private fun signIn() {
@@ -120,6 +121,7 @@ class LoginPageActivity : AppCompatActivity() {
                     Log.w("TAG", "signInWithEmail:failed", task.exception)
                 } else {
                     checkIfEmailVerified()
+                    checkShared(tvUsername.text.toString(), tvPassword.text.toString())
                 }
             }
     }
@@ -137,7 +139,6 @@ class LoginPageActivity : AppCompatActivity() {
         if(user == null) {
             return
         }
-        checkShared(tvUsername.text.toString(), tvPassword.text.toString())
         this.startActivity(Intent(baseContext, MainActivity2::class.java))
         finish()
     }

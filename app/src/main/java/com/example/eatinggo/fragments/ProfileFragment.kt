@@ -45,7 +45,7 @@ class ProfileFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        binding.username.text = auth.currentUser!!.displayName.toString()
+        if(auth.currentUser != null) binding.username.text = auth.currentUser!!.displayName.toString() else onDestroy()
 
         val executor = Executors.newSingleThreadExecutor()
         val handler = Handler(Looper.getMainLooper())

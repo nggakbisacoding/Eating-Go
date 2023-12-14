@@ -1,5 +1,6 @@
 package com.example.eatinggo
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.eatinggo.databinding.CafeSeatBinding
@@ -39,14 +40,17 @@ class DetailCafe : AppCompatActivity() {
     }
 
     private fun getAllData(placeId: String){
-        Api.placeService.placeDetails("current_opening_hours,formatted_phone_number,user_ratings_total,wheelchair_accessible_entrance", placeId, BuildConfig.PLACES_API_KEY).enqueue(object: Callback<DetailsCafe> {
+        Api.placeService.placeDetails("opening_hours,current_opening_hours,rating,formatted_phone_number,user_ratings_total,reviews,wheelchair_accessible_entrance", placeId, BuildConfig.PLACES_API_KEY).enqueue(object: Callback<DetailsCafe> {
+            @SuppressLint("SetTextI18n")
             override fun onResponse(call: Call<DetailsCafe>, response: Response<DetailsCafe>) {
                 if(response.isSuccessful){
                     val data = response.body()!!.data
-                    binding.phone.text = data.phone
+                    val time = data.current ?: (data.time ?: data.backtime)
+                    binding.phone.text = data.phone ?: "Unknown"
                     binding.rating.text = data.ratings.toString()
-                    binding.openNow.text = if(data.time.openNow) "Yes" else "No"
-                    binding.times.text = data.time.weekday.toString()
+                    binding.ratings.text = data.rating.toString()
+                    binding.openNow.text = if(time != null) if(time.openNow) "Yes" else "No" else "Unknown"
+                    binding.times.text = time?.weekday.toString()
                 }
             }
             override fun onFailure(call: Call<DetailsCafe>, t: Throwable) {

@@ -14,11 +14,14 @@ import com.example.eatinggo.fragments.HomeFragment
 import com.example.eatinggo.fragments.HomepageEmployeeFragment
 import com.example.eatinggo.fragments.ProfileFragment
 import com.google.firebase.Firebase
+import com.google.firebase.appcheck.appCheck
+import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.database
+import com.google.firebase.initialize
 
 class MainActivity2 : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
@@ -48,12 +51,16 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        Firebase.initialize(context = this)
+        Firebase.appCheck.installAppCheckProviderFactory(
+            PlayIntegrityAppCheckProviderFactory.getInstance()
+        )
         database = Firebase.database.reference
         auth = Firebase.auth
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
         email = sharedpreferences.getString(EMAIL_KEY, null)
         password = sharedpreferences.getString(PASSWORD_KEY, null)
-        typeUser = sharedpreferences.getString(ROLES, null)
+        typeUser = sharedpreferences.getString(ROLES, "user")
         if(typeUser == null) {
             database.child("users").child(auth.currentUser?.uid.toString()).child("userCategory").get().addOnCompleteListener {
                 if(it.isSuccessful) {

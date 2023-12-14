@@ -12,13 +12,34 @@ data class DetailsCafe(
 )
 data class CafeInfo(
     @SerializedName("current_opening_hours")
-    val time: CafeTime,
+    val time: CafeTime?= null,
+    @SerializedName("opening_hours")
+    val current: CafeTime?= null,
+    @SerializedName("secondary_opening_hours")
+    val backtime: CafeTime? = null,
     @SerializedName("formatted_phone_number")
-    val phone: String,
+    val phone: String? = null,
+    @SerializedName("reviews")
+    val review: List<Review>,
     @SerializedName("user_ratings_total")
     val ratings: Int,
+    @SerializedName("rating")
+    val rating: Double,
     @SerializedName("wheelchair_accessible_entrance")
     val cacat: Boolean
+)
+
+data class Review(
+    @SerializedName("author_name")
+    val nama: String,
+    @SerializedName("rating")
+    val rating: Double,
+    @SerializedName("profile_photo_url")
+    val profile: String,
+    @SerializedName("relative_time_description")
+    val waktu: String,
+    @SerializedName("text")
+    val text: String
 )
 
 data class CafeTime(

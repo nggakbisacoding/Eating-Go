@@ -185,7 +185,6 @@ class HistoryPageActivity : AppCompatActivity() {
                         val distance = SphericalUtil.computeDistanceBetween(location, target)
                         if(distance <= 100) {
                             dataInRange.add(i)
-                            Toast.makeText(applicationContext, "Distance between your location and ${i.name.toString()} is \n " + String.format("%.2f", distance / 1000) + "km", Toast.LENGTH_SHORT).show()
                         }
                     }
                     recyclerView.apply{

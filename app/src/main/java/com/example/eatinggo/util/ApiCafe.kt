@@ -22,7 +22,7 @@ interface ApiCafe{
     @GET("json?radius=1000&type=cafe")
     fun getnearby(@Query("keyword") keyword: String, @Query("location") latlng: String, @Query("key") key: String): Call<CafeResult>
 
-    @GET("json?language=id&region=id")
+    @GET("json?language=id&region=id&reviews_sort=newest")
     fun placeDetails(@Query("fields") field: String, @Query("place_id") placesId: String, @Query("key") key: String): Call<DetailsCafe>
 }
 
