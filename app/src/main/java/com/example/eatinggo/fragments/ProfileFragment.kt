@@ -26,6 +26,9 @@ class ProfileFragment : Fragment() {
     private lateinit var binding : FragmentProfileBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var firedb: DatabaseReference
+    companion object {
+        const val SHARED_PREFS = "shared_prefs"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,7 +52,7 @@ class ProfileFragment : Fragment() {
         var image: Bitmap?
         var url: String
         firedb.child("users").child(auth.currentUser!!.uid).child("profileImage").get().addOnSuccessListener {
-                url = it.value.toString()
+            url = it.value.toString()
             println(it.key + " " + it.value)
             executor.execute {
                 try {
@@ -80,6 +83,7 @@ class ProfileFragment : Fragment() {
         binding.logoutBtn.setOnClickListener {
             Firebase.auth.signOut()
             startActivity(Intent(requireContext(), SplashPageActivity::class.java))
+            onDestroy()
         }
     }
 }

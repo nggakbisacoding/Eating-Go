@@ -1,6 +1,5 @@
 package com.example.eatinggo
 
-import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -11,18 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.eatinggo.model.CafeDisplay
 
-class CafeListAdapter(private val mList: List<CafeDisplay>) : RecyclerView.Adapter<CafeListAdapter.ViewHolder>() {
-    companion object {
-        val avaible = (1..27).random()
-    }
+class HistoryListAdapter(private val mList: List<CafeDisplay>) : RecyclerView.Adapter<HistoryListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // inflates the card_view_design view
         // that is used to hold list item
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.cafe_item_holder, parent, false)
-        return ViewHolder(view).listen{ datas, _ ->
-            val item = mList[datas]
-            onClick(parent, item)
+            .inflate(R.layout.history_item_holder, parent, false)
+        return ViewHolder(view).listen{ _, _ ->
         }
     }
 
@@ -39,13 +33,11 @@ class CafeListAdapter(private val mList: List<CafeDisplay>) : RecyclerView.Adapt
     // Holds the views for adding it to image and text
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(data: CafeDisplay) {
-            val imageView: ImageView = itemView.findViewById(R.id.cafe_image)
-            val cafeName: TextView = itemView.findViewById(R.id.cafe_name)
-            val cafeAddress: TextView = itemView.findViewById(R.id.cafe_address)
-            val seatAvailable: TextView = itemView.findViewById(R.id.seat)
+            val imageView: ImageView = itemView.findViewById(R.id.cafe_img)
+            val cafeName: TextView = itemView.findViewById(R.id.cafe_nm)
+            val cafeAddress: TextView = itemView.findViewById(R.id.cafe_dress)
             cafeName.text = data.name
             cafeAddress.text = data.lokasi
-            seatAvailable.text = data.seat.toString()
             val query: String = if(data.image == null) {
                 "https://hesolutions.com.pk/wp-content/uploads/2019/01/picture-not-available.jpg"
             } else {
@@ -60,17 +52,5 @@ class CafeListAdapter(private val mList: List<CafeDisplay>) : RecyclerView.Adapt
             event.invoke(adapterPosition, itemViewType)
         }
         return this
-    }
-
-    private fun onClick(parent: ViewGroup, item: CafeDisplay) {
-        val random = (30..50).random()
-        val intent = Intent(parent.context.applicationContext, DetailCafe::class.java)
-        intent.putExtra("total", random)
-        intent.putExtra("avaible", avaible)
-        intent.putExtra("used", random-avaible)
-        intent.putExtra("place", item.placesId)
-        intent.putExtra("name", item.name)
-        intent.putExtra("geo", item.geo.latlng.lat.toString()+""+item.geo.latlng.lng.toString())
-        parent.context.startActivity(intent)
     }
 }

@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.database
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.storage
+import java.util.regex.Pattern
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: RegisterPageBinding
@@ -41,6 +42,7 @@ class RegisterActivity : AppCompatActivity() {
         const val SHARED_PREFS = "shared_prefs"
         const val EMAIL_KEY = "email_key"
         const val PASSWORD_KEY = "password_key"
+        const val ROLES = "roles"
     }
     private lateinit var sharedpreferences: SharedPreferences
     private var email: String? = null
@@ -64,59 +66,6 @@ class RegisterActivity : AppCompatActivity() {
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
         email = sharedpreferences.getString(EMAIL_KEY, null)
         password = sharedpreferences.getString(PASSWORD_KEY, null)
-
-        /*
-        var phoneNumber
-        callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-
-            override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-                // This callback will be invoked in two situations:
-                // 1 - Instant verification. In some cases the phone number can be instantly
-                //     verified without needing to send or enter a verification code.
-                // 2 - Auto-retrieval. On some devices Google Play services can automatically
-                //     detect the incoming verification SMS and perform verification without
-                //     user action.
-                Log.d(TAG, "onVerificationCompleted:$credential")
-                signInWithPhoneAuthCredential(credential)
-            }
-
-            override fun onVerificationFailed(e: FirebaseException) {
-                // This callback is invoked in an invalid request for verification is made,
-                // for instance if the the phone number format is not valid.
-                Log.w(TAG, "onVerificationFailed", e)
-
-                when (e) {
-                    is FirebaseAuthInvalidCredentialsException -> {
-                        Toast.makeText(this@RegisterActivity, e.toString(), Toast.LENGTH_LONG).show()
-                    }
-
-                    is FirebaseTooManyRequestsException -> {
-                        Toast.makeText(this@RegisterActivity, e.toString(), Toast.LENGTH_SHORT).show()
-                    }
-
-                    is FirebaseAuthMissingActivityForRecaptchaException -> {
-                        Toast.makeText(this@RegisterActivity, e.toString(), Toast.LENGTH_LONG).show()
-                    }
-                }
-                return
-            }
-
-            override fun onCodeSent(
-                verificationId: String,
-                token: PhoneAuthProvider.ForceResendingToken,
-            ) {
-                // The SMS verification code has been sent to the provided phone number, we
-                // now need to ask the user to enter the code and then construct a credential
-                // by combining the code with a verification ID.
-                Log.d(TAG, "onCodeSent:$verificationId")
-
-                // Save verification ID and resending token so we can use them later
-                storedVerificationId = verificationId
-                resendToken = token
-                verifyPhoneNumberWithCode(storedVerificationId, resendToken.toString())
-            }
-        }
-         */
 
         tvRedirectRegis.setOnClickListener {
             when (regisType) {
@@ -188,6 +137,10 @@ class RegisterActivity : AppCompatActivity() {
             return
         }
 
+        if(!isValidString(email)) {
+            Toast.makeText(baseContext, "Invalid email", Toast.LENGTH_SHORT).show()
+        }
+
         if(pass != confpass) {
             Toast.makeText(this, "Password and Confirmation doesn't match", Toast.LENGTH_SHORT).show()
             return
@@ -214,6 +167,7 @@ class RegisterActivity : AppCompatActivity() {
                             // below two lines will put values for
                             // email and password in shared preferences.
                             editor.putString(LoginPageActivity.PASSWORD_KEY, pass)
+                            editor.putString(ROLES, regisType)
                             // to save our data with key and value.
                             editor.apply()
                             updateUI(user)
@@ -242,5 +196,18 @@ class RegisterActivity : AppCompatActivity() {
             finish()
         }
         return
+    }
+
+    private val emailpattern = Pattern.compile(
+        "[a-zA-Z0-9+._%\\-]{1,256}" +
+                "@" +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                "(" +
+                "\\." +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                ")+"
+    )
+    private fun isValidString(str: String): Boolean{
+        return emailpattern.matcher(str).matches()
     }
 }

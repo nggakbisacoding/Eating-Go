@@ -54,13 +54,14 @@ class CafeInformationActivity : AppCompatActivity() {
         firedb = Firebase.database.reference
         setContentView(binding.root)
         database = ControllerDatabase.getDatabase(baseContext)
+        recyclerView = findViewById(R.id.rv_cafe_item)
         binding.backBtn.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         getLastLocation()
-        manager = LinearLayoutManager(this)
+        manager = LinearLayoutManager(this@CafeInformationActivity)
     }
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -165,7 +166,6 @@ class CafeInformationActivity : AppCompatActivity() {
         val response = client.getLocation(lat, BuildConfig.PLACES_API_KEY)
         response.enqueue(object : Callback<Result> {
             override fun onResponse(call: Call<Result>, response: Response<Result>) {
-                println(response.body()!!.data)
                 for(i in response.body()!!.data) {
                     binding.showLocation.text = i.location
                     break
@@ -183,8 +183,8 @@ class CafeInformationActivity : AppCompatActivity() {
             override fun onResponse(call: Call<CafeResult>, response: Response<CafeResult>) {
                 if(response.isSuccessful){
                     println(response.body()!!.data)
-                    recyclerView = findViewById<RecyclerView>(R.id.rv_cafe_item).apply{
-                        myAdapter = CafeListAdapter(response.body()!!.data)
+                    recyclerView.apply{
+                        myAdapter = CafeListAdapter(response.body()!!.data!!)
                         layoutManager = manager
                         adapter = myAdapter
                     }

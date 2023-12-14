@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HomeFragment">
 
-    <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/beige"
@@ -20,7 +22,7 @@
             android:fontFamily="@font/festina_lente"
             android:textColor="@color/darkBrown"
             android:textSize="30sp"
-            android:text="@string/welcome"/>
+            android:text="Welcome!"/>
         <TextView
             android:id="@+id/greetUsername"
             android:layout_width="wrap_content"
@@ -30,36 +32,69 @@
             android:fontFamily="@font/festina_lente"
             android:textColor="@color/darkBrown"
             android:textSize="30sp"
-            android:text="@string/username"/>
+            android:text="Username"/>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="250dp"
+            android:orientation="horizontal"
             android:gravity="center">
 
-            <Button
-                android:id="@+id/searchCafe"
-                android:layout_width="95dp"
-                android:layout_height="80dp"
-                android:background="@drawable/button_shape"
-                android:text="cari cafe"
-                />
-            <Button
-                android:id="@+id/nearbyCafe"
-                android:layout_width="95dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="125dp"
-                android:background="@drawable/button_shape"
-                android:text="nearby"/>
-            <Button
-                android:id="@+id/history"
-                android:layout_width="95dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="250dp"
-                android:background="@drawable/button_shape"
-                android:text="history"/>
-        </RelativeLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/searchCafe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/search_icon"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Search"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat_semibold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/nearbyCafe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="60dp"
+                    android:background="@drawable/location_icon"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Location"
+                    android:fontFamily="@font/montserrat_semibold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/history_icon"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="History"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+        </LinearLayout>
 
         <androidx.cardview.widget.CardView
             android:layout_width="350dp"

@@ -1,10 +1,10 @@
 package com.example.eatinggo
 
 import android.content.ContentValues.TAG
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.eatinggo.databinding.ReservationDetailPageBinding
 import com.google.firebase.Firebase
 import com.google.firebase.database.ChildEventListener
@@ -30,7 +30,7 @@ class ReservationDetailPageActivity : AppCompatActivity() {
                 Log.d(TAG, "onChildAdded:" + dataSnapshot.key!!)
 
                 if(dataSnapshot.child("onSeat").value == true) {
-                    Toast.makeText(baseContext, dataSnapshot.child("id").value.toString(), Toast.LENGTH_SHORT).show()
+                    println(dataSnapshot.value)
                 }
                 println(dataSnapshot.value)
             }

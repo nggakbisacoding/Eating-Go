@@ -7,7 +7,9 @@
     tools:context=".LoginPageActivity">
 
     <ScrollView
+        android:id="@+id/login_content"
         android:layout_width="match_parent"
+        android:visibility="visible"
         android:layout_height="800dp">
 
         <RelativeLayout
@@ -40,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="370dp"
+                android:layout_marginTop="330dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/textbackground" />
 
@@ -48,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="430dp"
+                android:layout_marginTop="390dp"
                 android:layout_marginEnd="40dp"
                 android:background="@drawable/textbackground" />
 
@@ -57,11 +59,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="370dp"
+                android:layout_marginTop="330dp"
                 android:layout_marginEnd="40dp"
                 android:backgroundTint="@android:color/transparent"
                 android:fontFamily="@font/serif_regular"
-                android:hint="@string/email_phone"
+                android:hint="@string/email_address"
                 android:inputType="text"
                 android:lines="1"
                 android:maxLines="1"
@@ -76,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="430dp"
+                android:layout_marginTop="390dp"
                 android:layout_marginEnd="40dp"
                 android:backgroundTint="@android:color/transparent"
                 android:fontFamily="@font/serif_regular"
@@ -94,7 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="500dp"
+                android:layout_marginTop="460dp"
                 android:layout_marginEnd="30dp"
                 android:orientation="horizontal">
 
@@ -116,19 +118,133 @@
                     android:textSize="13sp" />
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="510dp"
+                android:layout_marginEnd="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:paddingStart="15dp"
+                    android:text="@string/forgot_password"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/reset_pass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:contextClickable="true"
+                    android:text="@string/reset"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
         </RelativeLayout>
     </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/reset"
+        android:layout_width="match_parent"
+        android:layout_height="800dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/festina_lente"
+            android:text="@string/reset_password"
+            android:textColor="@color/darkBrown"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="250dp"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/festina_lente"
+            android:text="Enter your email"
+            android:textColor="@color/darkBrown"
+            android:textSize="30sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="330dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/textbackground" />
+
+        <EditText
+            android:id="@+id/email_reset"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="330dp"
+            android:layout_marginEnd="40dp"
+            android:backgroundTint="@android:color/transparent"
+            android:fontFamily="@font/serif_regular"
+            android:hint="@string/email_address"
+            android:inputType="text"
+            android:lines="1"
+            android:maxLines="1"
+            android:paddingStart="20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="15sp"
+            android:importantForAutofill="no" />
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="680dp"
+        android:layout_marginTop="650dp"
         android:layout_marginEnd="40dp"
         android:background="@drawable/button_shape"
         android:fontFamily="@font/serif_regular"
         android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="550dp"
+        android:layout_marginEnd="40dp"
+        android:visibility="gone"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/serif_regular"
+        android:text="@string/cancel"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/reset_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/serif_regular"
+        android:text="@string/reset"
+        android:visibility="gone"
         android:textColor="@color/white"
         android:textSize="15sp" />
 </RelativeLayout>

@@ -25,12 +25,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/festina_lente"
-            android:paddingStart="100dp"
+            android:paddingStart="110dp"
             android:text="History"
             android:textColor="@color/mediumBrown"
             android:textSize="25sp" />
     </LinearLayout>
-<!--    space buat tombol sort-->
+    <!--    space buat tombol sort-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -45,9 +45,6 @@
             android:paddingTop="15dp"
             tools:listitem="@layout/history_item_holder"
             tools:itemCount="10"/>
-
-
     </ScrollView>
-
 
 </RelativeLayout>

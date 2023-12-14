@@ -28,6 +28,7 @@ class MainActivity2 : AppCompatActivity() {
         const val SHARED_PREFS = "shared_prefs"
         const val EMAIL_KEY = "email_key"
         const val PASSWORD_KEY = "password_key"
+        const val ROLES = "roles"
     }
     private lateinit var sharedpreferences: SharedPreferences
     private var email: String? = null
@@ -49,12 +50,21 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(binding.root)
         database = Firebase.database.reference
         auth = Firebase.auth
-        database.child("users").child(auth.currentUser!!.uid).child("userCategory").get().addOnSuccessListener { data ->
-            typeUser = data.value.toString()
-        }
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
         email = sharedpreferences.getString(EMAIL_KEY, null)
         password = sharedpreferences.getString(PASSWORD_KEY, null)
+        typeUser = sharedpreferences.getString(ROLES, null)
+        if(typeUser == null) {
+            database.child("users").child(auth.currentUser?.uid.toString()).child("userCategory").get().addOnCompleteListener {
+                if(it.isSuccessful) {
+                    val roles = it.result.value.toString()
+                    val editor = sharedpreferences.edit()
+                    editor.putString(ROLES, roles)
+                    editor.apply()
+                    typeUser = roles
+                }
+            }
+        }
         val actionBar = supportActionBar
 
         if (actionBar != null) {

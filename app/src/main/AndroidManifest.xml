@@ -34,17 +34,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${GOOGLE_MAPS_API_KEY}" />
-        <service
-            android:name="CafeInformationActivity"
-            android:foregroundServiceType="location">
-            <!-- Any inner elements would go here. -->
-        </service>
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <uses-library
-            android:name="org.apache.http.legacy"
-            android:required="false" />
         <activity
             android:name=".AccountDetailPageActivity"
             android:exported="false" />
@@ -55,19 +44,19 @@
             android:name=".AboutPageActivity"
             android:exported="false" />
         <activity
-            android:name=".ReservationDetailPageActivity"
+            android:name=".util.PlaceAutocompleteActivity"
             android:exported="false" />
         <activity
-            android:name=".fragments.HomepageEmployeeFragment"
+            android:name=".ReservationDetailPageActivity"
             android:exported="false" />
         <activity
             android:name=".HistoryPageActivity"
             android:exported="false" />
         <activity
-            android:name=".CafeInformationActivity"
+            android:name=".DetailCafe"
             android:exported="false" />
         <activity
-            android:name=".CafeMap"
+            android:name=".CafeInformationActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"

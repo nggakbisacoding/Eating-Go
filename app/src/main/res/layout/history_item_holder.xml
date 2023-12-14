@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<!--item holder buat history kunjungan ke cafe-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,11 +11,12 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="180dp"
             android:backgroundTint="@color/lightBrown"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp">
             <ImageView
+                android:id="@+id/cafe_img"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:paddingTop="10dp"
@@ -29,64 +29,38 @@
                 android:layout_marginStart="150dp"
                 android:orientation="vertical">
                 <TextView
-                    android:layout_width="90dp"
+                    android:id="@+id/cafe_nm"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="5dp"
                     android:text="Kopi Kulo"
                     android:textColor="@color/white"
                     android:textSize="20sp"/>
                 <TextView
-                    android:layout_width="130dp"
+                    android:id="@+id/cafe_dress"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:layout_marginStart="10dp"
-                    android:text="Sleman, Yogyakarta 22 September 2023
-                        16.00"
+                    android:layout_marginStart="5dp"
+                    android:text="Sleman, Yogyakarta"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginTop="170dp"
-            android:backgroundTint="@color/lightBrown"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="10dp">
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:src="@drawable/small_arah_pandawa"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginStart="150dp"
-                android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
                 <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginStart="10dp"
-                    android:text="Arah Pandawa"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"/>
-                <TextView
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Sleman, Yogyakarta 22 September 2023
-                        16.00"
+                    android:id="@+id/date_hour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="150dp"
+                    android:layout_marginStart="140dp"
                     android:textColor="@color/white"
                     android:textSize="15sp"
-                    />
-            </LinearLayout>
+                    android:text="12-12-2023 16:00"/>
+            </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
     </RelativeLayout>
