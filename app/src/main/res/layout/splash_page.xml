@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/beige"
+    tools:context=".SplashPageActivity">
+<!--logo app svg nggak commpat sama IDE-->
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="90dp"
+        android:src="@mipmap/eating_go" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="350dp"
+        android:text="Get Started"
+        android:textSize="15sp"
+        android:textColor="@color/darkBrown"
+        android:fontFamily="@font/montserrat_semibold"/>
+    <TextView
+        android:id="@+id/app_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="200dp"
+        android:text="@string/app_description"
+        android:textSize="30sp"
+        android:fontFamily="@font/festina_lente"
+        android:textColor="@color/darkBrown"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/register_btn"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/button_shape"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="@string/register"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login_btn"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/button_shape"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="@string/login"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</RelativeLayout>

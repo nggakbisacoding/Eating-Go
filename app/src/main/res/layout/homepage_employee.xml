@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/beige"
+    tools:context=".fragments.HomepageEmployeeFragment">
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="30dp"
+        android:fontFamily="@font/festina_lente"
+        android:textColor="@color/darkBrown"
+        android:textSize="30sp"
+        android:text="Welcome!"/>
+    <TextView
+        android:id="@+id/greetUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="30dp"
+        android:fontFamily="@font/festina_lente"
+        android:textColor="@color/darkBrown"
+        android:textSize="30sp"
+        android:text="Employee"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/information"
+            android:layout_width="95dp"
+            android:layout_height="80dp"
+            android:background="@drawable/button_shape"
+            android:text="Information"
+            android:drawableStart="@drawable/ic_calendar"
+            />
+        <Button
+            android:id="@+id/seat"
+            android:layout_width="95dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="125dp"
+            android:background="@drawable/button_shape"
+            android:text="Seat"/>
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="380dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/lightBrown"
+        app:cardCornerRadius="15dp">
+
+        <TextView
+            android:id="@+id/reservation"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Reservation"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <View
+            android:layout_width="300dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="45dp"
+            android:background="@color/white"
+            android:layout_gravity="center_horizontal"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_item"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:listitem="@layout/res_item"/>
+
+        <TextView
+            android:id="@+id/no_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="30dp"
+            android:layout_marginTop="20dp"
+            android:visibility="visible"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:text="@string/no_rev"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

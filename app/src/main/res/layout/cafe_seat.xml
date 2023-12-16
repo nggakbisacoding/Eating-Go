@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/beige"
+    tools:context=".DetailCafe">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingStart="20dp"
+            android:src="@drawable/ic_back_arrow" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/festina_lente"
+            android:paddingStart="110dp"
+            android:text="Seat Cafe"
+            android:textColor="@color/mediumBrown"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/cafe_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Cofee Kulo"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/u"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/seat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="20"
+        android:textColor="@color/u" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Available : "
+        android:textColor="@color/u" />
+
+    <TextView
+        android:id="@+id/used"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="0"
+        android:textColor="@color/u" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Used : "
+        android:textColor="@color/u" />
+
+    <TextView
+        android:id="@+id/total_seat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="50"
+        android:textColor="@color/u" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Total Seat : "
+        android:textColor="@color/u" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="310dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Working Day : "
+        android:textColor="@color/u" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="210dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Phone : "
+        android:textColor="@color/u" />
+
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="210dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="08123456789"
+        android:textColor="@color/u" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Rating Total : "
+        android:textColor="@color/u" />
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="0"
+        android:textColor="@color/u" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="270dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Rating : "
+        android:textColor="@color/u" />
+
+    <TextView
+        android:id="@+id/ratings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="270dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="0"
+        android:textColor="@color/u" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Open Now : "
+        android:textColor="@color/u" />
+
+    <TextView
+        android:id="@+id/open_now"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Null"
+        android:textColor="@color/u" />
+
+    <TextView
+        android:id="@+id/times"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="370dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text=""
+        android:textColor="@color/u" />
+
+
+</RelativeLayout>

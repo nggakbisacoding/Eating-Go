@@ -1,3 +1,278 @@
 <resources>
     <string name="app_name">EatingGo</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="About_apps">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et hendrerit risus.
+        Curabitur ac tempor tortor. Mauris dignissim malesuada volutpat. Fusce a fringilla lacus.
+        Curabitur molestie vel metus quis imperdiet. Aenean ante turpis, laoreet nec nunc sit amet,
+        venenatis tempor nibh.Nam ut nisl sed ipsum aliquet dapibus at nec felis.
+        Cras nec nisl nisi. Proin consectetur ex sit amet orci cursus interdum.
+        Cras dapibus velit purus, vitae vestibulum purus dignissim tristique.
+        Mauris ac tellus sit amet neque venenatis blandit. Fusce dapibus mauris vitae finibus gravida.
+    </string>
+    <string name="FAQ">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Vivamus et hendrerit risus. Curabitur ac tempor tortor.
+        Mauris dignissim malesuada volutpat.
+    </string>
+    <string name="complete_your">Complete Your</string>
+    <string name="account_setup">Account Setup !</string>
+    <string name="i_am_a_user">I Am a User</string>
+    <string name="i_am_a_employee">I Am a Employee</string>
+    <string name="or">/</string>
+    <string name="register_as_employee">Register As Employee</string>
+    <string name="register_as_user">Register As User</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="hey_user">Hey, User</string>
+    <string name="login_now">Login Now!</string>
+    <string name="login_as_employee">Login As Employee</string>
+    <string name="login_as_user">Login As User</string>
+    <string name="email_phone">Email / Phone</string>
+    <string name="login">Login</string>
+    <string name="already_have_account">Already Have Account?</string>
+    <string name="register_now">Register Now!</string>
+    <string name="don_t_have_account">Don\'t Have Account?</string>
+    <string name="welcome">Welcome!</string>
+    <string name="username">Username</string>
+    <string name="active_book">Active Book</string>
+    <string name="cafe_name">Disable by Now</string>
+    <string name="alamat">Sleman, Yogyakarta</string>
+    <string name="tanggal">25 September 2023</string>
+    <string name="jam_default">16.00–18.00 WIB</string>
+    <string name="none">None</string>
+    <string name="about">About</string>
+    <string name="tentang_aplikasi_eatinggo">Tentang Aplikasi EatingGo</string>
+    <string name="account_detail">Account Detail</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="phone_number">0812345678</string>
+    <string name="example_email">email@gmail.com</string>
+    <string name="near_me">Near Me</string>
+    <string name="confirmation_password">Confirmation Password</string>
+    <string name="logout_account">Logout Account</string>
+    <string name="update_account">Update Account</string>
+    <string name="new_password">New Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="otp">otp</string>
+    <string name="can_t_change_for_now">Can\'t change for now</string>
+    <string name="disable">Phone (Disable for Now)</string>
+    <string name="are_you_sure">Are You Sure?</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_now">Delete Now!</string>
+    <string name="alamat_cafe">Jalan Kaliurang No.KM. 5,2, Manggung, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55284.</string>
+    <string name="seat_available">Seat Available</string>
+    <string name="current_location">Current Location</string>
+    <string name="book_description">
+        Enjoy the convenience of booking cafe seats online. Simply select your cafe, date, and time.
+    </string>
+    <string name="app_description">
+        Discover a variety of cafe options around you. Book your seat in seconds.
+    </string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="faq">faq</string>
+    <string name="log_out">Log out</string>
+    <string name="map_id">d98b4603250dacda</string>
+    <string name="sure">Sure</string>
+    <string name="regis_as_employee">Are you sure regis as Employee?</string>
+    <string name="id">We need Identify your ID later</string>
+    <string name="no_rev">No Reservation Available</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="reset">Reset</string>
+    <string name="reset_password">Reset Password</string>
+
+    <!-- Demo -->
+    <!-- title for error alerts. -->
+    <string name="error_alert_title" translatable="false">Uh-Oh!</string>
+    <!-- message to show for error alerts when location origin is malformed. -->
+    <string name="error_alert_message_invalid_origin" translatable="false">Unable to parse Location Origin. Expected format: "33, 128"</string>
+    <!-- message to show for error alerts when location bias or restriction is malformed. -->
+    <string name="error_alert_message_invalid_bounds" translatable="false">Unable to parse Location Bias or Location Restriction. Expected format: "33, 128"</string>
+    <!-- message to show for error alerts when a photo size field is malformed. -->
+    <string name="error_alert_message_invalid_photo_size" translatable="false">Unable to parse Photo size. Expected format is integers</string>
+
+    <string name="error_api_key" translatable="false">No API key defined in gradle.properties</string>
+
+    <!-- Text for raw results checkbox. When checked raw return values will be displayed. -->
+    <string name="display_raw_results" translatable="false">Display raw results?</string>
+
+
+    <!-- MAIN ACTIVITY -->
+
+    <!-- Button for launching autocomplete test activity. -->
+    <string name="autocomplete_button" translatable="false">Place Autocomplete</string>
+
+    <!-- Button for launching autocomplete address form activity. -->
+    <string name="autocomplete_address_button" translatable="false">Place Autocomplete Address Form</string>
+
+    <!-- Button for launching current place test activity. -->
+    <string name="current_place_button" translatable="false">Current Place</string>
+
+    <!-- Button for launching place and photo test activity. -->
+    <string name="place_and_photo_button" translatable="false">Place Details and Place Photos</string>
+
+    <!-- Button for launching is open test activity. -->
+    <string name="main_isOpenButtonText" translatable="false">Place is Open?</string>
+
+
+    <!-- AUTOCOMPLETE -->
+
+    <!-- Hint for the autocomplete widget's initial query and autocomplete prediction's query field. -->
+    <string name="autocomplete_query_hint" translatable="false">(Initial) Query</string>
+
+    <!-- Hint for the autocomplete widget's query field. -->
+    <string name="autocomplete_hint_hint" translatable="false">Hint</string>
+
+    <!-- Hint for the autocomplete prediction's and widget's countries field. -->
+    <string name="autocomplete_country_hint" translatable="false">Countries (e.g CH, US, RO)</string>
+
+    <!-- Text for enabling autocomplete prediction's and widget's types filter field. -->
+    <string name="autocomplete_use_types_filter" translatable="false">Use TypesFilter?</string>
+
+    <!-- Hint for the autocomplete prediction's and widget's types filter field. -->
+    <string name="autocomplete_types_filter_hint" translatable="false">
+    <font size="16">
+      Comma separated list of up to 5 place types
+    </font>
+  </string>
+
+    <!-- Text for the fetch autocomplete predictions submit button. -->
+    <string name="fetch_autocomplete_predictions_button" translatable="false">Fetch Predictions</string>
+
+    <!-- AUTOCOMPLETE ADDRESS -->
+
+    <!-- Label for the address form's first address line field. -->
+    <string name="autocomplete_address1_label" translatable="false">Address Line 1</string>
+
+    <!-- Label for the address form's second address line field. -->
+    <string name="autocomplete_address2_label" translatable="false">Apartment, unit, suite, or floor #</string>
+
+    <!-- Label for the address form's city field. -->
+    <string name="autocomplete_city_label" translatable="false">City</string>
+
+    <!-- Label for the address form's state field. -->
+    <string name="autocomplete_state_label" translatable="false">State/Province</string>
+
+    <!-- Label for the address form's postal code field. -->
+    <string name="autocomplete_postal_label" translatable="false">Postal code</string>
+
+    <!-- Label for the address form's country field. -->
+    <string name="autocomplete_country_label" translatable="false">Country/Region</string>
+
+    <!-- Label for the address form's proximity check setting. -->
+    <string name="autocomplete_proximity_check" translatable="false">Check device proximity</string>
+
+    <!-- Label for the address form's confirmation map. -->
+    <string name="autocomplete_map_label" translatable="false">Map view of the selected address</string>
+
+    <!-- Text for the address form submit button. -->
+    <string name="autocomplete_save_button" translatable="false">Submit address</string>
+
+    <!-- Text for the address form reset button. -->
+    <string name="autocomplete_reset_button" translatable="false">Clear form</string>
+
+    <!-- Label for the autocomplete prediction's and widget's location origin field. -->
+    <string name="autocomplete_location_origin_label" translatable="false">Location Origin (format: -33.2, 128.2)</string>
+
+    <!-- Label for the autocomplete prediction's and widget's location bias related fields. -->
+    <string name="autocomplete_location_bias_label" translatable="false">Location Bias (format: -33.2, 128.2)</string>
+
+    <!-- Label for the autocomplete prediction's and widget's location restriction related fields. -->
+    <string name="autocomplete_location_restriction_label" translatable="false">Location Restriction (format: -33.2, 128.2)</string>
+
+    <!-- Hint for the autocomplete prediction's and widget's location origin field. -->
+    <string name="autocomplete_location_origin_hint" translatable="false">Origin (lat, lng)</string>
+
+    <!-- Hint for the autocomplete prediction's and widget's location southwest field. -->
+    <string name="autocomplete_location_south_west_hint" translatable="false">South West (lat, lng)</string>
+
+    <!-- Hint for the autocomplete prediction's and widget's location northeast field. -->
+    <string name="autocomplete_location_north_east_hint" translatable="false">North East (lat, lng)</string>
+
+    <!-- Text for enabling autocomplete prediction's use of session tokens. -->
+    <string name="autocomplete_use_session_token" translatable="false">(Predictions-only) Use session token?</string>
+
+    <!-- Text for autocomplete activity mode (overlay or fullscreen) checkbox. -->
+    <string name="autocomplete_activity_overlay_mode" translatable="false">Overlay mode?</string>
+
+    <!-- Text for the autocomplete support fragment section label. -->
+    <string name="autocomplete_support_fragment_text_label" translatable="false">Autocomplete Support Fragment:</string>
+
+    <!-- Text for the autocomplete fragment section label. -->
+    <string name="autocomplete_fragment_text_label" translatable="false">Autocomplete Fragment:</string>
+
+    <!-- Text for the autocomplete support fragment update button. -->
+    <string name="autocomplete_support_fragment_update_button" translatable="false">Update Support Fragment</string>
+
+    <!-- Text for the autocomplete fragment update button. -->
+    <string name="autocomplete_fragment_update_button" translatable="false">Update Fragment</string>
+
+    <!-- Text for starting the autocomplete activity button. -->
+    <string name="autocomplete_activity_button" translatable="false">Open Activity</string>
+
+    <!-- Text for the toast message for a skilled proximity match. -->
+    <string name="autocomplete_skipped_message" translatable="false">Address accepted without checking proximity</string>
+
+    <!-- PROGRAMMATIC AUTOCOMPLETE AND GEOCODING -->
+
+    <string name="programmatic_autocomplete_geocoding">Programmatic Autocomplete + Geocoding</string>
+    <string name="search">Search</string>
+    <string name="search_a_place">Search for a Place</string>
+    <string name="programmatic_place_predictions_instructions">This activity demonstrates as-you-type programmatic place predictions. Tap on the search icon on the toolbar and search for a place.</string>
+
+    <!-- FIND CURRENT PLACE -->
+
+    <!-- Text for the find current place submit button. -->
+    <string name="find_current_place_button" translatable="false">Find Current Place</string>
+    <string name="icon_view_content_description" translatable="false">Icon View</string>
+    <string name="fetch_icon_checkbox" translatable="false">Also fetch icon?</string>
+    <string name="fetch_icon_missing_fields_warning" translatable="false">\'Also fetch icon?\' is selected, but ICON_URL Place Field is not.</string>
+    <string name="fetch_photo_selected_but_no_metadata">\'Also fetch photo?\' is selected, but PHOTO_METADATAS Place Field is not.</string>
+    <string name="custom_photo_reference_but_not_fetch_photo">Using \'Custom photo reference\', but \'Also fetch photo?\' is not selected.</string>
+    <string name="icon_view_image_content_description" translatable="false">Image view to display a Place Icon Image</string>
+    <string name="icon_with_background" translatable="false">Icon with background:</string>
+    <string name="place_photo" translatable="false">Place photo:</string>
+
+    <!-- PLACE DETAILS AND PHOTO -->
+
+    <!-- Place ID for a dining establishment, used as the default for testing in the Place and Photo screen -->
+    <string name="place_id_default" translatable="false">ChIJM3wn3VVYwokRvu2kbqBKUsM</string>
+
+    <!-- Hint for the place ID field. -->
+    <string name="place_id_field_hint" translatable="false">Enter place ID</string>
+
+    <!-- Text for the fetch place and photo button. -->
+    <string name="fetch_photo_checkbox" translatable="false">Also fetch photo?</string>
+
+    <!-- Hint for the fetch photo max width field. -->
+    <string name="photo_max_width_hint" translatable="false">Photo Max Width</string>
+
+    <!-- Text for the fetch photo max height field. -->
+    <string name="photo_max_height_hint" translatable="false">Photo Max Height</string>
+
+    <!-- Text for the fetch place and photo button. -->
+    <string name="use_custom_photo_reference" translatable="false">Use custom Photo Reference?</string>
+
+    <!-- Text for the fetch place and photo button. -->
+    <string name="custom_photo_reference_hint" translatable="false">Custom Photo Reference</string>
+
+    <!-- Text for checkbox to set custom list of Place Fields. -->
+    <string name="use_custom_fields" translatable="false">Manually set Place Fields?</string>
+
+    <!-- Text for the fetch place and photo button. -->
+    <string name="fetch_place_and_photo_button" translatable="false">Fetch Place and Photo</string>
+
+    <!-- PLACE IS OPEN -->
+
+    <string name="isOpen_fetch_place_button_text" translatable="false">Fetch Place then check IsOpen</string>
+    <string name="isOpen_is_open_button_text" translatable="false">Request IsOpen by Place ID</string>
+    <string name="isOpen_place_id_hint" translatable="false">Enter place ID</string>
+    <string name="isOpen_use_custom_fields_text" translatable="false">Manually set Place Fields?</string>
+    <string name="isOpen_spinner_description" translatable="false">Time Zone</string>
+    <string name="isOpen_date_hint" translatable="false">Select isOpen date</string>
+    <string name="isOpen_time_hint" translatable="false">Select isOpen time</string>
+    <string name="isOpen_use_custom_time_hint" translatable="false">Use custom isOpen time? (must set time zone, date, and time)</string>
+    <string name="isOpen_default_place_id" translatable="false">ChIJD3uTd9hx5kcR1IQvGfr8dbk</string>
 </resources>

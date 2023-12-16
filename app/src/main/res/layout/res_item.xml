@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/user"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="30dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="User 1"
+        android:textColor="@color/white"
+        android:textSize="15sp"/>
+    <TextView
+        android:id="@+id/book_status"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="200dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="User 1 has booked.."
+        android:textColor="@color/white"
+        android:textSize="15sp"/>
+
+    <View
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginStart="25dp"
+        android:background="@color/white"
+        android:layout_gravity="center_horizontal"/>
+
+</RelativeLayout>

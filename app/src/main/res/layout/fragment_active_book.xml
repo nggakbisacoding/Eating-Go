@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ActiveBookFragment">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/beige"
+        tools:context=".ActiveBookActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="100dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/festina_lente"
+            android:text="Active Book"
+            android:textColor="@color/darkBrown"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/namaCafe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="150dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Coffe Kulo"
+            android:textColor="@color/mediumBrown"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/lokasiCafe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="175dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Sleman, Yogyakarta"
+            android:textColor="@color/mediumBrown"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tanggalBooking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="200dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="25 September 2023"
+            android:textColor="@color/mediumBrown"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/waktuBooking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="220dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="16.00-18.00 WIB"
+            android:textColor="@color/mediumBrown"
+            android:textSize="15sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="250dp"
+            android:layout_marginBottom="-50dp"
+            android:backgroundTint="@color/mediumBrown"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp">
+
+            <ImageView
+                android:id="@+id/gambar_cafe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/kopi_kulo" />
+
+            <TextView
+                android:id="@+id/alamat_cafe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="170dp"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Jalan Kaliurang Km 5,2, Manggung Caturtunggal, Kec Depok, Kab Sleman, Daerah Istimewa Yogyakarta. "
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+</FrameLayout>
