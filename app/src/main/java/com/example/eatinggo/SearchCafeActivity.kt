@@ -206,6 +206,7 @@ class SearchCafeActivity : AppCompatActivity(), OnMapsSdkInitializedCallback{
             Callback<CafeResult> {
             override fun onResponse(call: Call<CafeResult>, response: Response<CafeResult>) {
                 if(response.isSuccessful){
+                    println(response.body()!!.data)
                     if(response.body()!!.data != null) {
                         recyclerView.apply{
                             myAdapter = CafeListAdapter(response.body()!!.data!!)

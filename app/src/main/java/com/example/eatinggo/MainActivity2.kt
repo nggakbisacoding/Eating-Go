@@ -60,7 +60,7 @@ class MainActivity2 : AppCompatActivity() {
         sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
         email = sharedpreferences.getString(EMAIL_KEY, null)
         password = sharedpreferences.getString(PASSWORD_KEY, null)
-        typeUser = sharedpreferences.getString(ROLES, "user")
+        typeUser = sharedpreferences.getString(ROLES, null)
         if(typeUser == null) {
             database.child("users").child(auth.currentUser?.uid.toString()).child("userCategory").get().addOnCompleteListener {
                 if(it.isSuccessful) {
